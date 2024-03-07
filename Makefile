@@ -3,45 +3,55 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
+#    By: jdenis <jdenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/19 11:08:46 by jugingas          #+#    #+#              #
-#    Updated: 2024/03/07 13:05:59 by jugingas         ###   ########.fr        #
+#    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
+#    Updated: 2024/03/07 15:10:19 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		=	src/main.c					\
-			src/init.c					\
-			src/error.c					\
-			src/parser.c				\
-			src/hook/close_window.c
+CC = gcc
 
-NAME		=	cub
-OBJS        =    $(SRC:.c=.o)
-LIBS        =    -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
-CC            =    cc
-FLAGS        =    -g3 -Werror -Wextra -Wall
+CFLAGS = -Wall -Wextra -Werror -g
 
-#------------------------------------------------------------------
+LDFLAGS = -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
+
+CPPFLAGS =												\
+				-I include/								\
+														\
+
+OBJS =													\
+														\
+				$(addprefix srcs/,						\
+				main.o									\
+														\
+				$(addprefix cub3d/,						\
+				cub3d.o									\
+				error.o									\
+				parser.o								\
+				init.o									\
+														\
+				$(addprefix hook/,						\
+				close_window.o							\
+				)										\
+				)										\
+				)										\
+														\
+														\
+
+NAME = cub3D
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) $(LIBS) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) -o $(NAME) $^ $(LDFLAGS)
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	$(RM) $(NAME)
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
+re: fclean all
 
-#------------------------------------------------------------------
-
-.PHONY: clean fclean re
+.PHONY: all clean fclean re check

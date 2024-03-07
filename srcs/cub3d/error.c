@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 13:02:31 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/07 13:09:55 by jugingas         ###   ########.fr       */
+/*   Created: 2024/03/07 13:00:22 by jugingas          #+#    #+#             */
+/*   Updated: 2024/03/07 14:52:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
-bool	parsing_map(char *filepath, t_map *map)
+void	error_usage(void)
 {
-	(void)filepath;
-	(void)map;
-	return (NULL);
+	printf("usage: ./cub [filepath]\n");
+}
+
+void	error_mlx(void)
+{
+	printf("error: mlx function failure\n");
 }

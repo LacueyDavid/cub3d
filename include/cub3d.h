@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/07 13:14:04 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:59:40 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 }			t_img;
+
+// main programe
+int	cub3d(int argc, char **argv);
 
 // init.c
 

@@ -6,11 +6,11 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:57:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/07 12:57:51 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:51:52 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 bool	create_window(t_window *window)
 {
