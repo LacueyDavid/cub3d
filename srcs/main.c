@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/07 14:57:18 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/07 15:50:16 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	main(int argc, char **argv)
 {
-	cub3d(argc, argv);
-	return (0);
+	return (cub3d(argc, argv));
 }
