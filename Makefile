@@ -6,7 +6,7 @@
 #    By: jdenis <jdenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/10 03:04:56 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/11 02:27:17 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS =													\
 				parser.o								\
 				init.o									\
 														\
-				$(addprefix hook/,						\
+				$(addprefix hooks/,						\
 				close_window.o							\
 				)										\
 				)										\
