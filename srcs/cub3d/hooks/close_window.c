@@ -6,37 +6,38 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:04:13 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/12 14:20:44 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/12 14:47:14 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/11 15:50:20 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	close_window(t_data *data)
+bool	terminate_session(t_cub3D_data *data)
 {
-	mlx_hook(data->window.window, 17, 0, handle_window_close, data);
-	mlx_key_hook(data->window.window, handle_key_press, data);
-	return (EXIT_SUCCESS);
+	mlx_hook(data->window.address, 17, 0, handle_window_close, data);
+	mlx_key_hook(data->window.address, handle_key_press, data);
+	return (true);
 }
 
-int	handle_key_press(int keycode, t_data *data)
+int	handle_key_press(int keycode, t_cub3D_data *data)
 {
-	if (keycode == 65307)
+	if (keycode == ESC_KEY_CODE)
 	{
-		mlx_destroy_window(data->window.mlx, data->window.window);
+		mlx_destroy_window(data->window.mlx, data->window.address);
 		mlx_destroy_display(data->window.mlx);
 		free(data->window.mlx);
-		destroy_map(data->map, 5);
+		destroy_map(data->map_data.map, 5);
 		exit (0);
 	}
 	return (0);
 }
 
-int	handle_window_close(t_data *data)
+int	handle_window_close(t_cub3D_data *data)
 {
-	mlx_destroy_window(data->window.mlx, data->window.window);
+	mlx_destroy_window(data->window.mlx, data->window.address);
 	mlx_destroy_display(data->window.mlx);
 	free(data->window.mlx);
-	destroy_map(data->map, 5);
+	destroy_map(data->map_data.map, 5);
 	exit (0);
 }

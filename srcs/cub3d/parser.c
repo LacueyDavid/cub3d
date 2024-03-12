@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:02:31 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/07 16:29:24 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:51:21 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	destroy_map(t_map_enum **map, int height)
 
 }
 
-bool	parsing_map(char *filepath, t_data *data)
+bool	parsing_map(char *filepath, t_map_data *data)
 {
 	(void)filepath;
 
