@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   create_session.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:57:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/12 15:10:13 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/12 15:16:31 by dlacuey          ###   ########.fr       */
 /*   Updated: 2024/03/11 15:52:13 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	create_window(t_window *window, t_img_data *img_data)
+bool	create_session(t_window *window, t_img_data *img_data)
 {
 	window->mlx = mlx_init();
 	if (!(window->mlx))

@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/12 14:49:17 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:13:45 by dlacuey          ###   ########.fr       */
 /*   Updated: 2024/03/11 15:50:37 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -85,7 +85,11 @@ int		cub3d(t_cub3D_data *data);
 
 // init.c
 
-bool	create_window(t_window *window, t_img_data *img_data);
+bool	create_session(t_window *window, t_img_data *img_data);
+
+// close_window.c
+
+bool	terminate_session(t_cub3D_data *data);
 
 // error.c
 
@@ -96,12 +100,6 @@ void	error_mlx(void);
 
 void	destroy_map(t_map_enum **map, int height);
 bool	parsing_map(char *filepath, t_map_data *map);
-
-// close_window.c
-
-bool	close_window(t_cub3D_data *data);
-bool	terminate_session(t_cub3D_data *data);
-
 //hooks
 
 int		handle_window_close(t_cub3D_data *data);
