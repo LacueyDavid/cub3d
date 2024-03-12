@@ -6,7 +6,7 @@
 #    By: jdenis <jdenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/11 02:27:17 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/12 15:13:22 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ OBJS =													\
 				cub3d.o									\
 				error.o									\
 				parser.o								\
-				init.o									\
+				create_session.o						\
 														\
 				$(addprefix hooks/,						\
-				close_window.o							\
+				terminate_session.o						\
 				)										\
 				)										\
 				)										\
