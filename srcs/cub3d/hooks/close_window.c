@@ -6,8 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:04:13 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/12 14:47:14 by dlacuey          ###   ########.fr       */
-/*   Updated: 2024/03/11 15:50:20 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/12 15:11:58 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +14,10 @@
 
 bool	terminate_session(t_cub3D_data *data)
 {
+	mlx_destroy_image(data->window.mlx, data->img_data.img);
 	mlx_hook(data->window.address, 17, 0, handle_window_close, data);
 	mlx_key_hook(data->window.address, handle_key_press, data);
-	return (true);
+	return (EXIT_SUCCESS);
 }
 
 int	handle_key_press(int keycode, t_cub3D_data *data)
