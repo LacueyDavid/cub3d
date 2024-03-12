@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/07 16:29:09 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:12:12 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,20 @@ typedef enum e_map_enum
 	EAST,
 }			t_map_enum;
 
+typedef struct s_img_data
+{
+	void	*img;
+	char	*address;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}			t_img_data;
+
 typedef struct s_data
 {
 	t_map_enum	**map;
 	t_window	window;
+	t_img_data	img_data;
 	char		*north_img;
 	char		*south_img;
 	char		*east_img;
@@ -60,22 +70,12 @@ typedef struct s_data
 	int			ceiling_color[3];
 }				t_data;
 
-typedef struct s_img
-{
-	void	*img;
-	char	*address;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_img;
-
 // main programe
 int	cub3d(int argc, char **argv);
 
 // init.c
 
-bool	create_window(t_window *window);
-bool	init_img(t_window *window, t_img *img);
+bool	create_window(t_window *window, t_img_data *img_data);
 
 // error.c
 
@@ -90,6 +90,6 @@ bool	parsing_map(char *filepath, t_data *map);
 // close_window.c
 
 bool	close_window(t_data *data);
-int	handle_key_press(int keycode, t_data *data);
-int	handle_window_close(t_data *data);
+int		handle_key_press(int keycode, t_data *data);
+int		handle_window_close(t_data *data);
 #endif
