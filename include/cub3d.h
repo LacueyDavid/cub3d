@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/12 16:13:45 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:39:10 by dlacuey          ###   ########.fr       */
 /*   Updated: 2024/03/11 15:50:37 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -73,11 +73,25 @@ typedef struct s_map_data
 	int			ceiling_color[3];
 }				t_map_data;
 
+typedef struct s_point
+{
+	int		pos_x;
+	int		pos_y;
+}			t_point;
+
+typedef struct s_player
+{
+	t_point	point;
+	int		color[3];
+	int		size;
+}				t_player;
+
 typedef struct s_cub3D_data
 {
 	t_map_data	map_data;
 	t_window	window;
 	t_img_data	img_data;
+	t_player	player;
 }	t_cub3D_data;
 
 // main programe
@@ -104,5 +118,9 @@ bool	parsing_map(char *filepath, t_map_data *map);
 
 int		handle_window_close(t_cub3D_data *data);
 int		handle_key_press(int keycode, t_cub3D_data *data);
+
+// put pixel on image
+
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
 #endif

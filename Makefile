@@ -6,7 +6,7 @@
 #    By: jdenis <jdenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/12 16:12:44 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/12 17:26:06 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ OBJS =													\
 														\
 				$(addprefix parser/,					\
 				parser.o								\
+				)										\
+				$(addprefix to_sort/,					\
+				my_mlx_pixel_put.o						\
 				)										\
 				)										\
 														\
