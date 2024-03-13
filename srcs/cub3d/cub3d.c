@@ -6,19 +6,19 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 05:19:58 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 07:29:27 by dlacuey          ###   ########.fr       */
 /*   Updated: 2024/03/11 15:47:23 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	rgb_to_int(int color_rgb[3])
+static int	rgb_to_int(int color_rgb[3])
 {
 	return (color_rgb[0] << 16 | color_rgb[1] << 8 | color_rgb[2]);
 }
 
-void	drawplayer(t_cub3D_data *data)
+static void	draw_player(t_cub3D_data *data)
 {
 	int	x;
 	int	y;
@@ -36,21 +36,7 @@ void	drawplayer(t_cub3D_data *data)
 	}
 }
 
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*ptr;
-	size_t			i;
-
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-}
-
-bool	reset_image(t_cub3D_data *data)
+static bool	reset_image(t_cub3D_data *data)
 {
 	ft_bzero(data->img_data.address,
 		WIDTH * HEIGHT * data->img_data.bits_per_pixel / 8);
@@ -60,7 +46,8 @@ bool	reset_image(t_cub3D_data *data)
 int	cub3d(t_cub3D_data *data)
 {
 	reset_image(data);
-	drawplayer(data);
+	draw_player(data);
+	// draw_map(data);
 	mlx_put_image_to_window(data->window.mlx, data->window.address, data->img_data.img, 0, 0);
 	return (1);
 }

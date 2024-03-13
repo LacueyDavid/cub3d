@@ -6,7 +6,7 @@
 #    By: jdenis <jdenis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/12 17:26:06 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/13 07:24:30 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,24 @@ OBJS =													\
 														\
 				$(addprefix hooks/,						\
 				terminate_session.o						\
+				key_board_hooks.o						\
 				)										\
 														\
 				$(addprefix initialization/,			\
 				create_session.o						\
 				)										\
 														\
+				$(addprefix create_player/,				\
+				create_player.o							\
+				)										\
+														\
 				$(addprefix parser/,					\
 				parser.o								\
 				)										\
+														\
 				$(addprefix to_sort/,					\
 				my_mlx_pixel_put.o						\
+				libft.o									\
 				)										\
 				)										\
 														\

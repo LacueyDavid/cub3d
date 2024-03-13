@@ -6,53 +6,11 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/13 05:21:36 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 07:19:28 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-bool	create_player(t_player *player)
-{
-	player->point.pos_x = 300;
-	player->point.pos_y = 300;
-	player->size = 4;
-	player->color[0] = 255;
-	player->color[1] = 255;
-	player->color[2] = 0;
-	return (true);
-}
-
-int handle_moving_press(int keycode, t_cub3D_data *data)
-{
-	if (keycode == W_KEY_CODE)
-	{
-		data->player.point.pos_y -= 10;
-		cub3d(data);
-	}
-	if (keycode == S_KEY_CODE)
-	{
-		data->player.point.pos_y += 10;
-		cub3d(data);
-	}
-	if (keycode == A_KEY_CODE)
-	{
-		data->player.point.pos_x -= 10;
-		cub3d(data);
-	}
-	if (keycode == D_KEY_CODE)
-	{
-		data->player.point.pos_x += 10;
-		cub3d(data);
-	}
-	return (true);
-}
-
-bool	key_board_hooks(t_cub3D_data *data)
-{
-	mlx_hook(data->window.address, 2, 1L << 0, handle_moving_press, data);
-	return (true);
-}
 
 int	main(int argc, char **argv)
 {
