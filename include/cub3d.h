@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 07:30:17 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 11:22:24 by dlacuey          ###   ########.fr       */
 /*   Updated: 2024/03/11 15:50:37 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -82,6 +82,9 @@ typedef struct s_img_data
 typedef struct s_map_data
 {
 	t_map_enum	**map;
+	int			width;
+	int			height;
+	int			map_wall_color[3];
 	char		*north_img;
 	char		*south_img;
 	char		*east_img;
@@ -118,7 +121,7 @@ int		cub3d(t_cub3D_data *data);
 bool	create_session(t_window *window, t_img_data *img_data);
 
 // create_player.c
-bool	create_player(t_player *player);
+bool	create_player(t_player *player, t_map_data *map_data);
 
 // close_window.c
 bool	terminate_session(t_cub3D_data *data);

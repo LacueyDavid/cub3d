@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/13 07:19:28 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 11:22:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	parsing_map(argv[1], &data.map_data);
 	if (!create_session(&data.window, &data.img_data))
 		return (error_mlx(), EXIT_FAILURE); // Don't forget to clear/free the data
-	create_player(&data.player);
+	create_player(&data.player, &data.map_data);
 	cub3d(&data);
 	key_board_hooks(&data);
 	terminate_session(&data);

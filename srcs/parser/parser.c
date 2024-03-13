@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:02:31 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/11 15:51:21 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 09:29:33 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ bool	parsing_map(char *filepath, t_map_data *data)
 	(void)filepath;
 
 	//Map Creation
+	data->width = 5;
+	data->height = 5;
+	data->map_wall_color[0] = 255;
+	data->map_wall_color[1] = 255;
+	data->map_wall_color[2] = 255;
 	data->map = malloc(5 * sizeof(t_map_enum*));
 	for (int i = 0; i < 5; i++)
 		data->map[i] = malloc(sizeof(t_map_enum) * 5);
