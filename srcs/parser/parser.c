@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:02:31 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 09:29:33 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 13:14:31 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,31 @@ void	destroy_map(t_map_enum **map, int height)
 
 }
 
-bool	parsing_map(char *filepath, t_map_data *data)
+bool	parsing_map(char *filepath, t_map_data *map_data)
 {
 	(void)filepath;
 
 	//Map Creation
-	data->width = 5;
-	data->height = 5;
-	data->map_wall_color[0] = 255;
-	data->map_wall_color[1] = 255;
-	data->map_wall_color[2] = 255;
-	data->map = malloc(5 * sizeof(t_map_enum*));
+	map_data->width = 5;
+	map_data->height = 5;
+	map_data->minimap_wall_color[0] = 255;
+	map_data->minimap_wall_color[1] = 255;
+	map_data->minimap_wall_color[2] = 255;
+	map_data->map = malloc(5 * sizeof(t_map_enum*));
 	for (int i = 0; i < 5; i++)
-		data->map[i] = malloc(sizeof(t_map_enum) * 5);
+		map_data->map[i] = malloc(sizeof(t_map_enum) * 5);
 	for (int i = 0; i < 5; i++)
 	{
 		for (int j = 0; j < 5; j++)
 		{
 			if (i == 0 || i == 4 || j == 0 || j == 4)
-				data->map[i][j] = WALL;
+				map_data->map[i][j] = WALL;
 			else if (i == 1 && j == 1)
-				data->map[i][j] = VOID;
+				map_data->map[i][j] = VOID;
 			else if (i == 2 && j == 2)
-				data->map[i][j] = NORTH;
+				map_data->map[i][j] = NORTH;
 			else
-				data->map[i][j] = VOID;
+				map_data->map[i][j] = VOID;
 		}
 	}
 
@@ -59,11 +59,11 @@ bool	parsing_map(char *filepath, t_map_data *data)
 	{
 		for(int y = 0; y < 5; y++)
 		{
-			if (data->map[i][y] == WALL)
+			if (map_data->map[i][y] == WALL)
 				printf("x");
-			else if (data->map[i][y] == VOID)
+			else if (map_data->map[i][y] == VOID)
 				printf("o");
-			else if (data->map[i][y] == NORTH)
+			else if (map_data->map[i][y] == NORTH)
 				printf("N");
 		}
 		printf("\n");
