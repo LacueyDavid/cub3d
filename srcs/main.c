@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/12 17:39:54 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 05:21:36 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,37 @@ bool	create_player(t_player *player)
 	return (true);
 }
 
+int handle_moving_press(int keycode, t_cub3D_data *data)
+{
+	if (keycode == W_KEY_CODE)
+	{
+		data->player.point.pos_y -= 10;
+		cub3d(data);
+	}
+	if (keycode == S_KEY_CODE)
+	{
+		data->player.point.pos_y += 10;
+		cub3d(data);
+	}
+	if (keycode == A_KEY_CODE)
+	{
+		data->player.point.pos_x -= 10;
+		cub3d(data);
+	}
+	if (keycode == D_KEY_CODE)
+	{
+		data->player.point.pos_x += 10;
+		cub3d(data);
+	}
+	return (true);
+}
+
+bool	key_board_hooks(t_cub3D_data *data)
+{
+	mlx_hook(data->window.address, 2, 1L << 0, handle_moving_press, data);
+	return (true);
+}
+
 int	main(int argc, char **argv)
 {
 	t_cub3D_data	data;
@@ -34,6 +65,7 @@ int	main(int argc, char **argv)
 		return (error_mlx(), EXIT_FAILURE); // Don't forget to clear/free the data
 	create_player(&data.player);
 	cub3d(&data);
+	key_board_hooks(&data);
 	terminate_session(&data);
 	mlx_loop(data.window.mlx);
 	return (EXIT_SUCCESS);

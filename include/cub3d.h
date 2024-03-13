@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/12 16:39:10 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 05:23:13 by dlacuey          ###   ########.fr       */
 /*   Updated: 2024/03/11 15:50:37 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -26,6 +26,22 @@
 
 # ifndef ESC_KEY_CODE
 #  define ESC_KEY_CODE 65307
+# endif
+
+# ifndef W_KEY_CODE
+#  define W_KEY_CODE 119
+# endif
+
+# ifndef A_KEY_CODE
+#  define A_KEY_CODE 97
+# endif
+
+# ifndef S_KEY_CODE
+#  define S_KEY_CODE 115
+# endif
+
+# ifndef D_KEY_CODE
+#  define D_KEY_CODE 100
 # endif
 
 # ifndef WIDTH
@@ -117,7 +133,7 @@ bool	parsing_map(char *filepath, t_map_data *map);
 //hooks
 
 int		handle_window_close(t_cub3D_data *data);
-int		handle_key_press(int keycode, t_cub3D_data *data);
+int		handle_escape_press(int keycode, t_cub3D_data *data);
 
 // put pixel on image
 
