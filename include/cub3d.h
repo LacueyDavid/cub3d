@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 12:09:51 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:32:07 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,14 @@
 #  define HEIGHT 720
 # endif
 
+# ifndef GAP
+#  define GAP WIDTH / 40
+# endif
+
+# ifndef MARGIN
+#  define MARGIN WIDTH / 70
+# endif
+
 typedef enum e_map_enum
 {
 	SPACE,
@@ -85,7 +93,7 @@ typedef struct s_map_data
 	t_map_enum	**map;
 	int			width;
 	int			height;
-	int			map_wall_color[3];
+	int			minimap_wall_color[3];
 	char		*north_img;
 	char		*south_img;
 	char		*east_img;
@@ -123,6 +131,8 @@ bool	create_session(t_window *window, t_img_data *img_data);
 
 // create_player.c
 bool	create_player(t_player *player, t_map_data *map_data);
+void	draw_player(t_cub3D_data *data);
+void	set_player_position(t_player *player, t_map_data *map_data);
 
 // close_window.c
 bool	terminate_session(t_cub3D_data *data);
@@ -164,7 +174,12 @@ void	ft_bzero(void *s, size_t n);
 bool	is_whitespace(char c);
 int		get_number(char *str);
 char	*ft_strdup(char *str);
+int		rgb_to_int(int color_rgb[3]);
+bool	reset_image(t_cub3D_data *data);
 
 // cub3d.c
+
+//// minimap.c
+void	draw_map(t_cub3D_data *data);
 
 #endif

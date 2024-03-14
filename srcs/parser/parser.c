@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 11:46:26 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:33:50 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_realloc(char **file, char *line)
 	return (free_file(file), new);
 }
 
-bool	parsing_map(char *filepath, t_map_data *data)
+bool	parsing_map(char *filepath, t_map_data *map_data)
 {
 	int		fd;
 	char	*line;
@@ -96,8 +96,8 @@ bool	parsing_map(char *filepath, t_map_data *data)
 		free(line);
 		line = get_next_line(fd);
 	}
-	if (!get_textures(file, data) || !get_colors(file, data)
-		|| !get_map(file, data))
+	if (!get_textures(file, map_data) || !get_colors(file, map_data)
+		|| !get_map(file, map_data))
 		return (free_file(file), close(fd), false);
 	return (free_file(file), close(fd), true);
 }
