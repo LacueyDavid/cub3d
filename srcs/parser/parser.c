@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 13:02:31 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 09:29:33 by dlacuey          ###   ########.fr       */
+/*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
+/*   Updated: 2024/03/14 11:46:26 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "get_next_line.h"
+#include <string.h>
 
 void	destroy_map(t_map_enum **map, int height)
 {
@@ -23,50 +25,79 @@ void	destroy_map(t_map_enum **map, int height)
 		i++;
 	}
 	free(map);
+}
 
+bool	check_filename_extention(char *filepath)
+{
+	int	i;
+
+	i = ft_strlen(filepath);
+	while (i > 0 && filepath[i] != '.')
+		i--;
+	if (filepath[i] == '.' && filepath[i + 1] == 'c'
+		&& filepath[i + 2] == 'u' && filepath[i + 3] == 'b'
+		&& filepath[i + 4] == '\0')
+		return (true);
+	return (false);
+}
+
+void	free_file(char **file)
+{
+	int	i;
+
+	i = -1;
+	while (file[++i])
+		free(file[i]);
+	free(file);
+}
+
+char	**ft_realloc(char **file, char *line)
+{
+	int		size;
+	int		i;
+	int		n;
+	char	**new;
+
+	size = 0;
+	i = -1;
+	while (file[size])
+		size++;
+	new = malloc(sizeof(char *) * (size + 2));
+	while (file[++i])
+	{
+		n = -1;
+		new[i] = malloc(sizeof(char) * ((ft_strlen(file[i]) + 1)));
+		while (file[i][++n])
+			new[i][n] = file[i][n];
+		new[i][n] = '\0';
+	}
+	new[i] = ft_strdup(line);
+	new[++i] = NULL;
+	return (free_file(file), new);
 }
 
 bool	parsing_map(char *filepath, t_map_data *data)
 {
-	(void)filepath;
+	int		fd;
+	char	*line;
+	char	**file;
 
-	//Map Creation
-	data->width = 5;
-	data->height = 5;
-	data->map_wall_color[0] = 255;
-	data->map_wall_color[1] = 255;
-	data->map_wall_color[2] = 255;
-	data->map = malloc(5 * sizeof(t_map_enum*));
-	for (int i = 0; i < 5; i++)
-		data->map[i] = malloc(sizeof(t_map_enum) * 5);
-	for (int i = 0; i < 5; i++)
+	if (!check_filename_extention(filepath))
+		return (error_wrong_extention(), false);
+	fd = open(filepath, O_RDONLY);
+	if (fd == -1)
+		return (error_map_not_found(), false);
+	file = malloc(sizeof(char *));
+	file[0] = NULL;
+	line = get_next_line(fd);
+	while (line)
 	{
-		for (int j = 0; j < 5; j++)
-		{
-			if (i == 0 || i == 4 || j == 0 || j == 4)
-				data->map[i][j] = WALL;
-			else if (i == 1 && j == 1)
-				data->map[i][j] = VOID;
-			else if (i == 2 && j == 2)
-				data->map[i][j] = NORTH;
-			else
-				data->map[i][j] = VOID;
-		}
+		file = ft_realloc(file, line);
+		free(line);
+		line = get_next_line(fd);
 	}
-
-	//Map print
-	for (int i = 0; i < 5; i++)
-	{
-		for(int y = 0; y < 5; y++)
-		{
-			if (data->map[i][y] == WALL)
-				printf("x");
-			else if (data->map[i][y] == VOID)
-				printf("o");
-			else if (data->map[i][y] == NORTH)
-				printf("N");
-		}
-		printf("\n");
-	}
-	return (EXIT_SUCCESS);
+	if (!get_textures(file, data) || !get_colors(file, data)
+		|| !get_map(file, data))
+		return (free_file(file), close(fd), false);
+	return (free_file(file), close(fd), true);
 }

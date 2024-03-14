@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:04:13 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 05:26:07 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/13 16:04:02 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ int	handle_escape_press(int keycode, t_cub3D_data *data)
 		mlx_destroy_window(data->window.mlx, data->window.address);
 		mlx_destroy_display(data->window.mlx);
 		free(data->window.mlx);
-		destroy_map(data->map_data.map, 5);
+		free(data->map_data.north_img);
+		free(data->map_data.south_img);
+		free(data->map_data.east_img);
+		free(data->map_data.west_img);
+		destroy_map(data->map_data.map, data->map_data.height);
 		exit (0);
 	}
 	return (0);
@@ -39,6 +43,10 @@ int	handle_window_close(t_cub3D_data *data)
 	mlx_destroy_window(data->window.mlx, data->window.address);
 	mlx_destroy_display(data->window.mlx);
 	free(data->window.mlx);
-	destroy_map(data->map_data.map, 5);
+	free(data->map_data.north_img);
+	free(data->map_data.south_img);
+	free(data->map_data.east_img);
+	free(data->map_data.west_img);
+	destroy_map(data->map_data.map, data->map_data.height);
 	exit (0);
 }

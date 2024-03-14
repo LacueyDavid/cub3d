@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 07:19:45 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/14 11:28:27 by jugingas         ###   ########.fr       */
+/*   Created: 2022/11/11 15:04:09 by jugingas          #+#    #+#             */
+/*   Updated: 2024/03/13 13:02:11 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*ptr;
-	size_t			i;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdint.h>
 
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 8
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlen(const char *str);
+char	*ft_strchr(char *s, int c);
+
+#endif

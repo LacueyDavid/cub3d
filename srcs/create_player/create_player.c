@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/13 11:27:08 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/14 11:37:00 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	set_player_position(t_player *player, t_map_data *map_data)
 
 	gap = WIDTH / 40;
 	y = 0;
-	while (y < map_data->width)
+	while (y < map_data->height)
 	{
 		x = 0;
-		while (x < map_data->height)
+		while (x < map_data->width)
 		{
 			if (map_data->map[y][x] == NORTH)
 				break ;

@@ -6,8 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 11:18:39 by dlacuey          ###   ########.fr       */
-/*   Updated: 2024/03/11 15:47:23 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/14 14:02:03 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +72,10 @@ static void	draw_map(t_cub3D_data *data)
 
 	gap = WIDTH / 40;
 	y = 0;
-	while (y < data->map_data.width)
+	while (y < data->map_data.height)
 	{
 		x = 0;
-		while (x < data->map_data.height)
+		while (x < data->map_data.width)
 		{
 			if (data->map_data.map[y][x] == WALL)
 				draw_map_wall(data, y * gap, x * gap);

@@ -6,10 +6,10 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 11:22:24 by dlacuey          ###   ########.fr       */
-/*   Updated: 2024/03/11 15:50:37 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/14 12:09:51 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -24,6 +24,7 @@
 # include <sys/types.h>
 # include <math.h>
 # include "../mlx/mlx.h"
+# include "get_next_line.h"
 
 # ifndef ESC_KEY_CODE
 #  define ESC_KEY_CODE 65307
@@ -127,12 +128,23 @@ bool	create_player(t_player *player, t_map_data *map_data);
 bool	terminate_session(t_cub3D_data *data);
 
 // error.c
+void	error_wrong_extention(void);
+void	error_map_not_found(void);
+void	error_parsing(void);
 void	error_usage(void);
 void	error_mlx(void);
 
 // parser.c
-void	destroy_map(t_map_enum **map, int height);
-bool	parsing_map(char *filepath, t_map_data *map);
+void		destroy_map(t_map_enum **map, int height);
+bool		parsing_map(char *filepath, t_map_data *map);
+int			skip_texture_and_colors(char **file);
+bool		is_map_line(char *line);
+int			get_map_size(char **map);
+t_map_enum	*fill_with_spaces(t_map_enum *map, int i, int width);
+bool		get_textures(char **file, t_map_data *data);
+bool		get_colors(char **file, t_map_data *data);
+bool		get_map(char **file, t_map_data *data);
+bool		check_map(char **map);
 
 //hooks
 
@@ -147,7 +159,11 @@ bool	key_board_hooks(t_cub3D_data *data);
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 
 //libft.c
+void	print_map(t_map_enum **map, int height, int width);
 void	ft_bzero(void *s, size_t n);
+bool	is_whitespace(char c);
+int		get_number(char *str);
+char	*ft_strdup(char *str);
 
 // cub3d.c
 
