@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 13:06:09 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 15:07:01 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,23 @@ static void	set_first_player_position(t_player *player, t_map_data *map_data)
 	}
 }
 
+void	set_player_orientation(t_player *player)
+{
+	float d_pi;
+
+	d_pi = M_PI / 2;
+	if (player->orientation == NORTH)
+		player->angle = 3 * d_pi;
+	else if (player->orientation == SOUTH)
+		player->angle = d_pi;
+	else if (player->orientation == WEST)
+		player->angle = M_PI;
+	else if (player->orientation == EAST)
+		player->angle = 0;
+	player->delta_x = cos(player->angle) * 4;
+	player->delta_y = sin(player->angle) * 4;
+}
+
 void	set_player_size(t_player *player, t_map_data *map_data)
 {
 	int	two_time_smaller_than_one_block;
@@ -66,5 +83,6 @@ bool	create_player(t_player *player, t_map_data *map_data)
 	set_player_size(player, map_data);
 	set_player_color(player);
 	set_first_player_position(player, map_data);
+	set_player_orientation(player);
 	return (true);
 }

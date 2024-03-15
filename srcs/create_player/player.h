@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:10 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 11:44:36 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 15:03:02 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,29 @@
 
 typedef struct s_point
 {
-	int		x;
-	int		y;
+	float		x;
+	float		y;
 }			t_point;
+
+typedef struct s_int_point
+{
+	int	x;
+	int	y;
+}			t_int_point;
+
+typedef struct s_line
+{
+	t_int_point	p1;
+	t_int_point	p2;
+}				t_line;
 
 typedef struct s_player
 {
 	int		orientation;
 	t_point	position;
+	float	delta_x;
+	float	delta_y;
+	float	angle;
 	int		color[3];
 	int		size;
 }				t_player;
