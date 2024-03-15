@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 15:32:43 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 19:10:31 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 
 # include "../mlx/mlx.h"
-# include "get_next_line.h"
 # include "cub3d_includes.h"
 # include "cub3d_useful_values.h"
 # include "keycode.h"
