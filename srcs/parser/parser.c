@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 12:45:00 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 13:00:19 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ bool	fill_file(char ***file, char *filepath)
 	return (true);
 }
 
+void	set_gap(t_map_data *map_data)
+{
+	if (map_data->width > map_data->height)
+		map_data->gap = (WIDTH / 4) / map_data->width;
+	else
+		map_data->gap = (HEIGHT / 4) / map_data->height;
+}
+
 bool	parsing_map(char *filepath, t_map_data *map_data)
 {
 	char	**file;
@@ -60,6 +68,7 @@ bool	parsing_map(char *filepath, t_map_data *map_data)
 		return (error_wrong_extention(), false);
 	if (!fill_file(&file, filepath))
 		return (false);
+	// bloc a revoir //////////////////////////////
 	if (!get_textures(file, map_data))
 		return_value = false;
 	else if (!get_colors(file, map_data))
@@ -68,8 +77,11 @@ bool	parsing_map(char *filepath, t_map_data *map_data)
 		return_value = false;
 	else
 		return_value = true;
+	///////////////////////////////////////////////
 	(free_file(file));
 	set_minimap_colors(map_data);
-	print_map(map_data->map, map_data->height, map_data->width);
+	/// if needed uncomment to print the map
+	// print_map(map_data->map, map_data->height, map_data->width);
+	set_gap(map_data);
 	return (return_value);
 }

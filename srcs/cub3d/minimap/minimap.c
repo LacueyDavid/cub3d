@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:43:52 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:14:38 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 12:56:50 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	draw_minimap(t_cub3D_data *data)
 
 	y = 0;
 	map = data->map_data.map;
-	gap = (WIDTH / 4) / data->map_data.width;
+	gap = data->map_data.gap;
 	while (y < data->map_data.height)
 	{
 		x = 0;

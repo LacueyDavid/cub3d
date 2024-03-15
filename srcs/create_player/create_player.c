@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:11:09 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 12:57:24 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	set_first_player_position(t_player *player, t_map_data *map_data)
 	int	margin;
 
 	y = 0;
-	gap = (WIDTH / 4) / map_data->width;
+	gap = map_data->gap;
 	margin = WIDTH / 70;
 	while (y < map_data->height)
 	{

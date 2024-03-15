@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:13:09 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 12:55:40 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ typedef struct s_map_data
 	t_map_enum	**map;
 	int			width;
 	int			height;
-	int			minimap_wall_color[3];
 	char		*north_img;
 	char		*south_img;
 	char		*east_img;
 	char		*west_img;
 	int			floor_color[3];
 	int			ceiling_color[3];
+	int			minimap_wall_color[3];
+	int			gap;
 }				t_map_data;
 
 void		print_map(t_map_enum **map, int height, int width);
