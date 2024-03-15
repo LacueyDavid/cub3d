@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/15 12:38:17 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/15 15:43:32 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ CPPFLAGS =												\
 				-I srcs/initialization/					\
 				-I srcs/utils/							\
 				-I srcs/clear/							\
+				-I srcs/hooks/							\
 														\
 
 OBJS =													\
@@ -56,6 +57,7 @@ OBJS =													\
 				$(addprefix hooks/,						\
 				terminate_session.o						\
 				key_board_hooks.o						\
+				do_key.o								\
 				)										\
 														\
 				$(addprefix initialization/,			\
@@ -64,6 +66,7 @@ OBJS =													\
 														\
 				$(addprefix create_player/,				\
 				create_player.o							\
+				set_player_first_position.o				\
 				)										\
 														\
 				$(addprefix clear/,						\
@@ -83,6 +86,7 @@ OBJS =													\
 				utils.o									\
 				my_mlx_pixel_put.o						\
 				libft.o									\
+				rasterization.o							\
 				)										\
 				)										\
 														\
