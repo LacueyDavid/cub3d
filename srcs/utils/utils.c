@@ -6,11 +6,29 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:28:04 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 11:28:41 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:17:51 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	select_print(t_map_enum index)
+{
+	if (index == SPACE)
+		printf(" ");
+	else if (index == WALL)
+		printf("1");
+	else if (index == VOID)
+		printf("0");
+	else if (index == NORTH)
+		printf("N");
+	else if (index == SOUTH)
+		printf("S");
+	else if (index == EAST)
+		printf("E");
+	else if (index == WEST)
+		printf("W");
+}
 
 void	print_map(t_map_enum **map, int height, int width)
 {
@@ -22,22 +40,7 @@ void	print_map(t_map_enum **map, int height, int width)
 	{
 		n = -1;
 		while (++n < width)
-		{
-			if (map[i][n] == SPACE)
-				printf(" ");
-			else if (map[i][n] == WALL)
-				printf("1");
-			else if (map[i][n] == VOID)
-				printf("0");
-			else if (map[i][n] == NORTH)
-				printf("N");
-			else if (map[i][n] == SOUTH)
-				printf("S");
-			else if (map[i][n] == EAST)
-				printf("E");
-			else if (map[i][n] == WEST)
-				printf("W");
-		}
+			select_print(map[i][n]);
 		printf("\n");
 	}
 }

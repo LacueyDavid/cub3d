@@ -6,26 +6,13 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 15:33:50 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:45:00 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "get_next_line.h"
 #include <string.h>
-
-void	destroy_map(t_map_enum **map, int height)
-{
-	int	i;
-
-	i = 0;
-	while (i < height)
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-}
 
 bool	check_filename_extention(char *filepath)
 {
@@ -41,63 +28,48 @@ bool	check_filename_extention(char *filepath)
 	return (false);
 }
 
-void	free_file(char **file)
+bool	fill_file(char ***file, char *filepath)
 {
-	int	i;
+	int		fd;
+	char	*line;
 
-	i = -1;
-	while (file[++i])
-		free(file[i]);
-	free(file);
-}
-
-char	**ft_realloc(char **file, char *line)
-{
-	int		size;
-	int		i;
-	int		n;
-	char	**new;
-
-	size = 0;
-	i = -1;
-	while (file[size])
-		size++;
-	new = malloc(sizeof(char *) * (size + 2));
-	while (file[++i])
+	fd = open(filepath, O_RDONLY);
+	if (fd == -1)
+		return (error_map_not_found(), false);
+	*file = malloc(sizeof(char *));
+	if (!*file)
+		return (close(fd), error_malloc(), false);
+	(*file)[0] = NULL;
+	line = get_next_line(fd);
+	while (line)
 	{
-		n = -1;
-		new[i] = malloc(sizeof(char) * ((ft_strlen(file[i]) + 1)));
-		while (file[i][++n])
-			new[i][n] = file[i][n];
-		new[i][n] = '\0';
+		*file = ft_realloc(*file, line);
+		free(line);
+		line = get_next_line(fd);
 	}
-	new[i] = ft_strdup(line);
-	new[++i] = NULL;
-	return (free_file(file), new);
+	close(fd);
+	return (true);
 }
 
 bool	parsing_map(char *filepath, t_map_data *map_data)
 {
-	int		fd;
-	char	*line;
 	char	**file;
+	int		return_value;
 
 	if (!check_filename_extention(filepath))
 		return (error_wrong_extention(), false);
-	fd = open(filepath, O_RDONLY);
-	if (fd == -1)
-		return (error_map_not_found(), false);
-	file = malloc(sizeof(char *));
-	file[0] = NULL;
-	line = get_next_line(fd);
-	while (line)
-	{
-		file = ft_realloc(file, line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	if (!get_textures(file, map_data) || !get_colors(file, map_data)
-		|| !get_map(file, map_data))
-		return (free_file(file), close(fd), false);
-	return (free_file(file), close(fd), true);
+	if (!fill_file(&file, filepath))
+		return (false);
+	if (!get_textures(file, map_data))
+		return_value = false;
+	else if (!get_colors(file, map_data))
+		return_value = false;
+	else if (!get_map(file, map_data))
+		return_value = false;
+	else
+		return_value = true;
+	(free_file(file));
+	set_minimap_colors(map_data);
+	print_map(map_data->map, map_data->height, map_data->width);
+	return (return_value);
 }

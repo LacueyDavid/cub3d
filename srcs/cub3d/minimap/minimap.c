@@ -6,17 +6,24 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:43:52 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 10:21:10 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 12:14:38 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void	set_minimap_colors(t_map_data *map_data)
+{
+	map_data->minimap_wall_color[0] = 255;
+	map_data->minimap_wall_color[1] = 255;
+	map_data->minimap_wall_color[2] = 255;
+}
+
 static void	draw_minimap_wall(t_cub3D_data *data, int x, int y, int gap)
 {
 	int	start_x;
 	int	start_y;
-	int margin;
+	int	margin;
 
 	start_x = x;
 	start_y = y;
@@ -36,22 +43,18 @@ static void	draw_minimap_wall(t_cub3D_data *data, int x, int y, int gap)
 
 void	draw_minimap(t_cub3D_data *data)
 {
-	int	x;
-	int	y;
-	int	height;
-	int	width;
-	int	gap;
+	int			x;
+	int			y;
+	int			gap;
 	t_map_enum	**map;
 
 	y = 0;
-	width = data->map_data.width;
-	height = data->map_data.height;
 	map = data->map_data.map;
 	gap = (WIDTH / 4) / data->map_data.width;
-	while (y < height)
+	while (y < data->map_data.height)
 	{
 		x = 0;
-		while (x < width)
+		while (x < data->map_data.width)
 		{
 			if (map[y][x] == WALL)
 				draw_minimap_wall(data, y * gap, x * gap, gap);

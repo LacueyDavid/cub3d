@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/14 15:34:01 by jugingas         ###   ########.fr        #
+#    Updated: 2024/03/15 12:38:17 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,14 @@ LDFLAGS = -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
 
 CPPFLAGS =												\
 				-I include/								\
+				-I srcs/get_next_line/					\
+				-I srcs/cub3d/minimap/					\
+				-I srcs/errors/							\
+				-I srcs/create_player/					\
+				-I srcs/parser/							\
+				-I srcs/initialization/					\
+				-I srcs/utils/							\
+				-I srcs/clear/							\
 														\
 
 OBJS =													\
@@ -42,6 +50,7 @@ OBJS =													\
 														\
 				$(addprefix errors/,					\
 				error.o									\
+				error_2.o								\
 				)										\
 														\
 				$(addprefix hooks/,						\
@@ -57,6 +66,10 @@ OBJS =													\
 				create_player.o							\
 				)										\
 														\
+				$(addprefix clear/,						\
+				destroy.o								\
+				)										\
+														\
 				$(addprefix parser/,					\
 				parser.o								\
 				get_textures.o							\
@@ -66,7 +79,7 @@ OBJS =													\
 				check_map.o								\
 				)										\
 														\
-				$(addprefix to_sort/,					\
+				$(addprefix utils/,						\
 				utils.o									\
 				my_mlx_pixel_put.o						\
 				libft.o									\
