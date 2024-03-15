@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:13:37 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:58:30 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 13:21:26 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	handle_moving_press(int keycode, t_cub3D_data *data)
 {
 	int	one_block;
 
-	one_block = (WIDTH / 4) / data->map_data.width;
+	one_block = data->map_data.gap;
 	if (keycode == W_KEY_CODE)
 		data->player.position.y -= one_block;
 	if (keycode == S_KEY_CODE)
