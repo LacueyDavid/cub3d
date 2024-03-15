@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jdenis <jdenis@student.42.fr>              +#+  +:+       +#+         #
+#    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/13 12:46:48 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/14 15:34:01 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,12 @@ OBJS =													\
 														\
 				$(addprefix srcs/,						\
 				main.o									\
+														\
+														\
+				$(addprefix get_next_line/,				\
+				get_next_line.o							\
+				get_next_line_utils.o					\
+				)										\
 														\
 				$(addprefix cub3d/,						\
 				cub3d.o									\
@@ -53,9 +59,15 @@ OBJS =													\
 														\
 				$(addprefix parser/,					\
 				parser.o								\
+				get_textures.o							\
+				get_colors.o							\
+				get_map.o								\
+				get_map_utils.o							\
+				check_map.o								\
 				)										\
 														\
 				$(addprefix to_sort/,					\
+				utils.o									\
 				my_mlx_pixel_put.o						\
 				libft.o									\
 				)										\

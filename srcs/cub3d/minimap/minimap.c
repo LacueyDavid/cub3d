@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:43:52 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/13 13:09:55 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/14 15:38:26 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	draw_map(t_cub3D_data *data)
 	int	y;
 
 	y = 0;
-	while (y < data->map_data.width)
+	while (y < data->map_data.height)
 	{
 		x = 0;
-		while (x < data->map_data.height)
+		while (x < data->map_data.width)
 		{
 			if (data->map_data.map[y][x] == WALL)
 				draw_map_wall(data, y * GAP, x * GAP);
