@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 15:32:07 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/15 08:34:42 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ int		get_number(char *str);
 char	*ft_strdup(char *str);
 int		rgb_to_int(int color_rgb[3]);
 bool	reset_image(t_cub3D_data *data);
+int		ft_strlen(const char *s);
 
 // cub3d.c
 
