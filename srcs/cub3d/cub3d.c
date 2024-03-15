@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 15:42:38 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/15 08:55:10 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	cub3d(t_cub3D_data *data)
 {
 	init_minimap(data);
 	reset_image(data);
-	draw_map(data);
+	draw_minimap(data);
 	draw_player(data);
 	mlx_put_image_to_window(data->window.mlx,
 		data->window.address, data->img_data.img, 0, 0);

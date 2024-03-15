@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 08:34:42 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/15 10:19:24 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,6 @@
 #  define HEIGHT 720
 # endif
 
-# ifndef GAP
-#  define GAP WIDTH / 40
-# endif
-
-# ifndef MARGIN
-#  define MARGIN WIDTH / 70
-# endif
-
 typedef enum e_map_enum
 {
 	SPACE,
@@ -104,13 +96,14 @@ typedef struct s_map_data
 
 typedef struct s_point
 {
-	int		pos_x;
-	int		pos_y;
+	int		x;
+	int		y;
 }			t_point;
 
 typedef struct s_player
 {
-	t_point	point;
+	int		orientation;
+	t_point	position;
 	int		color[3];
 	int		size;
 }				t_player;
@@ -181,6 +174,6 @@ int		ft_strlen(const char *s);
 // cub3d.c
 
 //// minimap.c
-void	draw_map(t_cub3D_data *data);
+void	draw_minimap(t_cub3D_data *data);
 
 #endif
