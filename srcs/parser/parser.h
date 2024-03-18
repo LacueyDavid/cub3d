@@ -6,14 +6,16 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 13:08:11 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:25:13 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-# include "cub3d_includes.h"
+# include <stdbool.h>
+# include "libft_and_utils.h"
+# include <aio.h>
 
 typedef enum e_map_enum
 {
@@ -35,9 +37,9 @@ typedef struct s_map_data
 	char		*south_img;
 	char		*east_img;
 	char		*west_img;
-	int			floor_color[3];
-	int			ceiling_color[3];
-	int			minimap_wall_color[3];
+	t_color_rgb	floor_color;
+	t_color_rgb	ceiling_color;
+	t_color_rgb	minimap_wall_color;
 	int			gap;
 }				t_map_data;
 

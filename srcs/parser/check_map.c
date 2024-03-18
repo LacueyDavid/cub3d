@@ -6,11 +6,13 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:02:48 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 14:00:44 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:56:59 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdbool.h>
+#include <stdio.h>
+#include "libft_and_utils.h"
 
 bool	check_around(char **map, int i, int n)
 {

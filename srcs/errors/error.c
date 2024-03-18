@@ -6,11 +6,11 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:00:22 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 12:31:14 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:42:17 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdio.h>
 
 void	error_wrong_extention(void)
 {

@@ -6,11 +6,16 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:27:01 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 15:12:32 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:51:51 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdbool.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <libft_and_utils.h>
+#include "parser.h"
 
 bool	get_north(char **file, t_map_data *data)
 {

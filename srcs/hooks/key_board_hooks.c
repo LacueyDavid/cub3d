@@ -6,12 +6,14 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:13:37 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 15:27:04 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:43:27 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "hooks.h"
+#include "cub3d_useful_values.h"
+#include "mlx.h"
 
 static void	ensure_player_is_in_map(t_cub3D_data *data)
 {

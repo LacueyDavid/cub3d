@@ -6,11 +6,12 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:24:50 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/14 14:02:21 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:59:34 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#include "cub3d_useful_values.h"
+#include "image_data.h"
 
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
 {

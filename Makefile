@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/15 15:43:32 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/18 14:17:24 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ CPPFLAGS =												\
 				-I srcs/utils/							\
 				-I srcs/clear/							\
 				-I srcs/hooks/							\
+				-I mlx/									\
+				-I srcs/cub3d/draw/						\
 														\
 
 OBJS =													\
@@ -46,7 +48,11 @@ OBJS =													\
 				$(addprefix minimap/,					\
 				minimap.o								\
 				)										\
-														\
+				$(addprefix draw/,						\
+				my_mlx_pixel_put.o						\
+				rasterization.o							\
+				draw.o									\
+				)										\
 				)										\
 														\
 				$(addprefix errors/,					\
@@ -84,9 +90,7 @@ OBJS =													\
 														\
 				$(addprefix utils/,						\
 				utils.o									\
-				my_mlx_pixel_put.o						\
 				libft.o									\
-				rasterization.o							\
 				)										\
 				)										\
 														\

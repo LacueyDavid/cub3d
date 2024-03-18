@@ -6,11 +6,14 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:28:04 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 12:17:51 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:57:38 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "parser.h"
 
 void	select_print(t_map_enum index)
 {

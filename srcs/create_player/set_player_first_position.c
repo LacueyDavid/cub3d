@@ -6,11 +6,15 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:17:17 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 15:17:28 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:45:34 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <math.h>
+#include <stdbool.h>
+#include "parser.h"
+#include "player.h"
+#include "cub3d_useful_values.h"
 
 static bool	is_cardinal_point(t_map_enum map_enum)
 {

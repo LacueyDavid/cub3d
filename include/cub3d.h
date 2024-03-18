@@ -6,23 +6,16 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 15:32:43 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:39:54 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../mlx/mlx.h"
-# include "get_next_line.h"
-# include "cub3d_includes.h"
-# include "cub3d_useful_values.h"
-# include "keycode.h"
-# include "errors.h"
-# include "parser.h"
-# include "libft_and_utils.h"
+# include <stdbool.h>
 # include "image_data.h"
-# include "minimap.h"
+# include "parser.h"
 # include "player.h"
 
 typedef struct s_cub3D_data
@@ -43,10 +36,6 @@ int		handle_escape_press(int keycode, t_cub3D_data *data);
 
 //// cub3d.c
 int		cub3d(t_cub3D_data *data);
-// cub3d actions
-bool	reset_image(t_cub3D_data *data);
-void	draw_player(t_cub3D_data *data);
-void	draw_minimap(t_cub3D_data *data);
 
 //// hook to moove the player
 bool	key_board_hooks(t_cub3D_data *data);

@@ -6,11 +6,13 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:19:45 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:39:12 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 14:01:07 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <aio.h>
+#include "libft_and_utils.h"
+#include <stdlib.h>
 
 int	ft_strlen(const char *s)
 {
@@ -36,9 +38,9 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-int	rgb_to_int(int color_rgb[3])
+int	rgb_to_int(t_color_rgb color_rgb)
 {
-	return (color_rgb[0] << 16 | color_rgb[1] << 8 | color_rgb[2]);
+	return (color_rgb.r << 16 | color_rgb.g << 8 | color_rgb.b);
 }
 
 char	**ft_realloc(char **file, char *line)

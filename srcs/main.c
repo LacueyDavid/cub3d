@@ -6,11 +6,14 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:44:59 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:30:58 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
+#include <stdlib.h>
 #include "cub3d.h"
+#include "errors.h"
 
 int	main(int argc, char **argv)
 {

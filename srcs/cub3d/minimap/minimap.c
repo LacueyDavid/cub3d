@@ -6,17 +6,18 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:43:52 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 12:56:50 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:39:46 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "cub3d_useful_values.h"
 
 void	set_minimap_colors(t_map_data *map_data)
 {
-	map_data->minimap_wall_color[0] = 255;
-	map_data->minimap_wall_color[1] = 255;
-	map_data->minimap_wall_color[2] = 255;
+	map_data->minimap_wall_color.r = 255;
+	map_data->minimap_wall_color.g = 255;
+	map_data->minimap_wall_color.b = 255;
 }
 
 static void	draw_minimap_wall(t_cub3D_data *data, int x, int y, int gap)

@@ -6,36 +6,39 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:26:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 12:15:09 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:55:40 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include "libft_and_utils.h"
+#include "parser.h"
 
-bool	get_values(char *line, int *tab)
+bool	get_values(char *line, t_color_rgb tab)
 {
 	int	i;
 
 	i = -1;
-	tab[0] = -1;
-	tab[1] = -1;
-	tab[2] = -1;
+	tab.r = -1;
+	tab.g = -1;
+	tab.b = -1;
 	if (line[i] && line[i] != '\n')
-		tab[0] = get_number(&line[i]);
+		tab.r = get_number(&line[i]);
 	while (line[i] && line[i] != ',' && (is_whitespace(line[i])
 			|| (line[i] >= '0' && line[i] <= '9')))
 		i++;
 	i++;
 	if (line[i] && line[i] != '\n')
-		tab[1] = get_number(&line[i]);
+		tab.g = get_number(&line[i]);
 	while (line[i] && line[i] != ',' && (is_whitespace(line[i])
 			|| (line[i] >= '0' && line[i] <= '9')))
 		i++;
 	i++;
 	if (line[i] && line[i] != '\n')
-		tab[2] = get_number(&line[i]);
-	if (tab[0] >= 0 && tab[0] <= 255 && tab[1] >= 0
-		&& tab[1] <= 255 && tab[2] >= 0 && tab[2] <= 255)
+		tab.b = get_number(&line[i]);
+	if (tab.r >= 0 && tab.r <= 255 && tab.g >= 0
+		&& tab.g <= 255 && tab.b >= 0 && tab.b <= 255)
 		return (true);
 	return (false);
 }

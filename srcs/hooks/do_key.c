@@ -6,11 +6,13 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 15:40:57 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:43:53 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "keycode.h"
+#include <math.h>
 
 static void	do_w_key(t_cub3D_data *data)
 {

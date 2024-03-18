@@ -6,11 +6,14 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:26:40 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 12:13:32 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:56:23 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "stdlib.h"
+#include "stdio.h"
+#include "stdbool.h"
+#include "parser.h"
 
 t_map_enum	*copy_line(t_map_enum *map, char *line, int width)
 {

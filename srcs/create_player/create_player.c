@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 15:35:04 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 12:24:29 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	set_player_size(t_player *player, t_map_data *map_data)
 
 void	set_player_color(t_player *player)
 {
-	player->color[0] = 255;
-	player->color[1] = 0;
-	player->color[2] = 0;
+	player->color.r = 255;
+	player->color.g = 0;
+	player->color.b = 0;
 }
 
 bool	create_player(t_player *player, t_map_data *map_data)

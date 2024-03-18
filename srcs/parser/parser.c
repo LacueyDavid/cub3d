@@ -6,13 +6,20 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/15 15:53:17 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:50:43 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include <stdbool.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include "libft_and_utils.h"
+#include "errors.h"
 #include "get_next_line.h"
-#include <string.h>
+#include "cub3d_useful_values.h"
+#include "parser.h"
+#include "minimap.h"
 
 bool	check_filename_extention(char *filepath)
 {

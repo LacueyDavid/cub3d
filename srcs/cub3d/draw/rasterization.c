@@ -6,12 +6,13 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:42:36 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 15:46:50 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 14:00:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 #include "image_data.h"
+#include <stdlib.h>
 
 static t_point	define_direction(t_line line)
 {

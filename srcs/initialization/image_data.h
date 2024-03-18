@@ -6,14 +6,14 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:04:21 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 11:09:01 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/18 13:24:46 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMAGE_DATA_H
 # define IMAGE_DATA_H
 
-# include "cub3d_includes.h"
+# include <stdbool.h>
 
 typedef struct s_window
 {
