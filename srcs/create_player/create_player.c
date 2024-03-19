@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/18 12:24:29 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/19 10:31:46 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	set_player_size(t_player *player, t_map_data *map_data)
 {
-	int	two_time_smaller_than_one_block;
-
-	two_time_smaller_than_one_block = map_data->gap / 2;
-	player->size = two_time_smaller_than_one_block;
+	player->size = map_data->gap / 4;
 }
 
 void	set_player_color(t_player *player)
