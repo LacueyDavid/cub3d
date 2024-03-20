@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:23:31 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:12 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/20 11:56:50 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,21 @@
 # define DRAW_H
 
 # include "image_data.h"
-# include "player.h"
 # include "cub3d.h"
+# include "player.h"
+
+typedef struct ray
+{
+	float negative_invert_tan;
+	float negative_tan;
+	float angle;
+	float x;
+	float y;
+	float x_offset;
+	float y_offset;
+	float numbers;
+	int depth_of_field;
+} t_ray;
 
 void	rasterization(t_line line, t_img_data *img, int color);
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);

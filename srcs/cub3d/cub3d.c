@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/19 16:31:13 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/20 16:02:26 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include "cub3d_useful_values.h"
 #include "mlx.h"
 #include <math.h>
+#include "libft_and_utils.h"
 
+#include <stdio.h>
 int	which_is_bigger(int a, int b)
 {
 	if (a > b)
@@ -31,83 +33,90 @@ bool	reset_image(t_img_data *img_data)
 	return (true);
 }
 
-typedef struct ray
-{
-	float angle;
-	float x;
-	float y;
-	float x_offset;
-	float y_offset;
-	float numbers;
-	float depth_of_field;
-} t_ray;
-
-float aTan;
-
-#include <stdio.h>
-
-void	looking_up(t_cub3D_data *data, t_ray *ray)
+void	looking_left(t_cub3D_data *data, t_ray *ray)
 {
 	int gap = data->map_data.gap;
-	if (ray->angle > M_PI)
-	{
-		ray->y =  (((int)data->player.position.y / gap) * gap) -4;
-		ray->x = (data->player.position.y - ray->y) * aTan + data->player.position.x;
-		ray->y_offset = -gap;
-		ray->x_offset = -ray->y_offset * aTan;
-	}
+	ray->x =  (((int)data->player.position.x / gap) * gap - 4 - 0.0001);
+	ray->y = (data->player.position.x - ray->x) * ray->negative_tan + data->player.position.y;
+	ray->x_offset = -gap;
+	ray->y_offset = -ray->x_offset * ray->negative_tan;
 }
 
-void	looking_down(t_cub3D_data *data, t_ray *ray)
+void	looking_right(t_cub3D_data *data, t_ray *ray)
 {
+	printf("player y = %f\n", data->player.position.y);
+	printf("negative tan = %f\n", ray->negative_tan);
+	printf("player x = %f\n", data->player.position.x);
+	printf("ray x = %f\n", ray->x);
+	printf("position x = %f\n", data->player.position.x);
 	int gap = data->map_data.gap;
-	if (ray->angle < M_PI)
-	{
-		ray->y =  (((int)data->player.position.y / gap) * gap) + gap -4;
-		ray->x = (data->player.position.y - ray->y) * aTan + data->player.position.x;
-		ray->y_offset = gap;
-		ray->x_offset = -ray->y_offset * aTan;
-	}
+	ray->x = (((int)data->player.position.x / gap) * gap) + gap - 4;
+	ray->y = (data->player.position.x - ray->x) * ray->negative_tan + data->player.position.y;
+	ray->x_offset = gap;
+	ray->y_offset = -ray->x_offset * ray->negative_tan;
 }
+//
+// void	looking_up(t_cub3D_data *data, t_ray *ray)
+// {
+// 	int gap = data->map_data.gap;
+// 	ray->y =  (((int)data->player.position.y / gap) * gap - 4 - 0.0001);
+// 	ray->x = (data->player.position.y - ray->y) * ray->opposite_invert_tan + data->player.position.x;
+// 	ray->y_offset = -gap;
+// 	ray->x_offset = -ray->y_offset * ray->opposite_invert_tan;
+// }
+//
+// void	looking_down(t_cub3D_data *data, t_ray *ray)
+// {
+// 	int gap = data->map_data.gap;
+// 	ray->y = (((int)data->player.position.y / gap) * gap) + gap - 4;
+// 	ray->x = (data->player.position.y - ray->y) * ray->opposite_invert_tan + data->player.position.x;
+// 	ray->y_offset = gap;
+// 	ray->x_offset = -ray->y_offset * ray->opposite_invert_tan;
+// }
 
-void	looking_sides(t_cub3D_data *data, t_ray *ray)
+void	looking_straight_sides(t_cub3D_data *data, t_ray *ray, int *bigger)
 {
-	int		bigger;
-
-	bigger = which_is_bigger(data->map_data.width, data->map_data.height);
-	if (ray->angle == 0)
-	{
-		ray->x = data->player.position.x;
-		ray->y = data->player.position.y;
-		ray->depth_of_field = bigger;
-	}
+	ray->x = data->player.position.x;
+	ray->y = data->player.position.y;
+	ray->depth_of_field = *bigger;
 }
 
 int	is_wall(t_cub3D_data *data, int x, int y)
 {
 	if (x < 0 || x >= data->map_data.width || y < 0 || y >= data->map_data.height)
 		return (1);
-	return (data->map_data.map[y][x] == WALL);
+	if (data->map_data.map[y][x] == WALL)
+		return (1);
+	return (0);
 }
 
-void	fire_rays_until_wall(t_cub3D_data *data, t_ray *ray)
+void	draw_ray(t_cub3D_data *data, t_ray *ray)
 {
-	int		bigger;
+	t_line	line;
+
+	line.p1.x = (int)data->player.position.x;
+	line.p1.y = (int)data->player.position.y;
+	line.p2.x = ray->x;
+	line.p2.y = ray->y;
+	printf("ray y = %f\n", ray->y);
+	rasterization(line, &data->img_data, rgb_to_int(data->player.color));
+	printf("ok salope\n");
+}
+
+void	fire_rays_until_wall(t_cub3D_data *data, t_ray *ray, int *bigger)
+{
 	int		map_x;
 	int		map_y;
 	int		gap;
-	t_line	line;
 
 	gap = data->map_data.gap;
-	bigger = which_is_bigger(data->map_data.width, data->map_data.height);
-	while (ray->depth_of_field < bigger)
+	while (ray->depth_of_field < *bigger)
 	{
-		map_x = (int)ray->x / gap;
-		map_y = (int)ray->y / gap;
-		printf("x = %d, y = %d\n", map_x, map_y);
+		map_x = (int)((ray->x - WIDTH / 70) / gap);
+		map_y = (int)((ray->y - WIDTH / 70) / gap);
 		if (is_wall(data, map_x, map_y))
 		{
-			ray->depth_of_field = bigger;
+			ray->depth_of_field = *bigger;
 		}
 		else
 		{
@@ -116,26 +125,37 @@ void	fire_rays_until_wall(t_cub3D_data *data, t_ray *ray)
 			ray->depth_of_field += 1; // go to next line
 		}
 	}
-	line.p1.x = data->player.position.x;
-	line.p1.y = data->player.position.y;
-	line.p2.x = ray->x;
-	line.p2.y = ray->y;
-	rasterization(line, &data->img_data, rgb_to_int(data->player.color));
+	draw_ray(data, ray);
 }
 
 void	draw_rays_3d(t_cub3D_data *data)
 {
 	t_ray	ray;
+	int		bigger;
 
+	bigger = which_is_bigger(data->map_data.width, data->map_data.height);
 	ray.angle = data->player.angle;
-	aTan = -1 / tan(ray.angle);
 	ray.numbers = 0;
 	while (ray.numbers < 1)
 	{
-		looking_up(data, &ray);
-		looking_down(data, &ray);
-		looking_sides(data, &ray);
-		fire_rays_until_wall(data, &ray);
+		// ray.negative_invert_tan = -1 / tan(ray.angle);
+		// ray.depth_of_field = 0;
+		// if (ray.angle > M_PI)
+		// 	looking_up(data, &ray);
+		// else if (ray.angle < M_PI)
+		// 	looking_down(data, &ray);
+		// else
+		// 	looking_straight_sides(data, &ray, &bigger);
+		printf("ray angle = %f\n", ray.angle);
+		ray.negative_tan = -tan(ray.angle);
+		ray.depth_of_field = 0;
+		if (ray.angle > M_PI / 2 && ray.angle < 3 * M_PI / 2)
+			looking_left(data, &ray);
+		else if (ray.angle < M_PI / 2 || ray.angle > 3 * M_PI / 2)
+			looking_right(data, &ray);
+		else
+			looking_straight_sides(data, &ray, &bigger);
+		fire_rays_until_wall(data, &ray, &bigger);
 		ray.numbers += 1;
 	}
 }
