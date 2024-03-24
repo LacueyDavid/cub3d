@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/21 12:49:02 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/25 00:00:21 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,9 @@ void	draw_ray(t_cub3D_data *data, t_ray *ray)
 
 	line.p1.x = (int)data->player.position.x;
 	line.p1.y = (int)data->player.position.y;
-	line.p2.x = ray->x;
-	line.p2.y = ray->y;
+	line.p2.x = (int)ray->x;
+	line.p2.y = (int)ray->y;
+	printf("ray x = %f, ray y = %f\n", ray->x, ray->y);
 	rasterization(line, &data->img_data, rgb_to_int(data->player.color));
 }
 
@@ -110,11 +111,6 @@ void	fire_horizontal_ray(t_cub3D_data *data, t_ray *ray, int *bigger, float *dis
 		if (is_wall(data, map_x, map_y))
 		{
 			ray->depth_of_field = *bigger;
-			printf("HORIZONTAL\n");
-			printf("ray->x = %f\n", ray->x);
-			printf("ray->y = %f\n", ray->y);
-			printf("cos angle = %f\n", cos(ray->angle));
-			printf("sin angle = %f\n", sin(ray->angle));
 			*disH = cos(ray->angle) * (ray->x - data->player.position.x) - sin(ray->angle) * (ray->y - data->player.position.y);
 		}
 		else
@@ -140,11 +136,6 @@ void	fire_vertical_ray(t_cub3D_data *data, t_ray *ray, int *bigger, float *disV)
 		if (is_wall(data, map_x, map_y))
 		{
 			ray->depth_of_field = *bigger;
-			printf("VERTICAL\n");
-			printf("ray->x = %f\n", ray->x);
-			printf("ray->y = %f\n", ray->y);
-			printf("cos angle = %f\n", cos(ray->angle));
-			printf("sin angle = %f\n", sin(ray->angle));
 			*disV = cos(ray->angle) * (ray->x - data->player.position.x) - sin(ray->angle) * (ray->y - data->player.position.y);
 		}
 		else
@@ -167,13 +158,14 @@ void	draw_rays_2d(t_cub3D_data *data)
 
 	disV = 100000; //enlever le nombre magique
 	disH = 100000; //enlever le nombre magique
+	printf("angle = %f\n", data->player.angle);
 	bigger = which_is_bigger(data->map_data.width, data->map_data.height);
 	ray.angle = data->player.angle;
 	ray.numbers = 0;
 	while (ray.numbers < 1)
 	{
 		// vertical rays
-		ray.negative_tan = -tan(ray.angle);
+		ray.negative_tan = tan(ray.angle);
 		ray.depth_of_field = 0;
 		if (cos(ray.angle) < -0.001)
 			looking_left(data, &ray);
@@ -183,17 +175,15 @@ void	draw_rays_2d(t_cub3D_data *data)
 			looking_straight_sides(data, &ray, &bigger);
 		fire_vertical_ray(data, &ray, &bigger, &disV);
 		// horizontal rays
-		ray.negative_invert_tan = -1 / tan(ray.angle);
+		ray.negative_invert_tan = 1.0 / tan(ray.angle);
 		ray.depth_of_field = 0;
-		if (cos(ray.angle) > 0.001)
+		if (sin(ray.angle) > 0.001)
 			looking_up(data, &ray);
-		else if (cos(ray.angle) < -0.001)
+		else if (sin(ray.angle) < -0.001)
 			looking_down(data, &ray);
 		else
 			looking_straight_sides(data, &ray, &bigger);
 		fire_horizontal_ray(data, &ray, &bigger, &disH);
-		printf("disV = %f\n", disV);
-		printf("disH = %f\n", disH);
 		if (disV < disH)
 		{
 			ray.x = ray.vx;
