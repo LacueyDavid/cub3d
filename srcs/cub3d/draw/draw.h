@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:23:31 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/20 11:56:50 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/21 10:57:30 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct ray
 	float angle;
 	float x;
 	float y;
+	float vx;
+	float vy;
 	float x_offset;
 	float y_offset;
 	float numbers;
