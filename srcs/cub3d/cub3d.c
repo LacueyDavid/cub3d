@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/26 07:55:03 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 08:30:58 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,13 +189,7 @@ void	draw_3d_walls(t_cub3D_data *data, t_ray *ray, float disH)
 		line.p2.y = lineH + lineOff;
 		rasterization(line, &data->img_data, rgb_to_int(color));
 		ray_v_nb++;
-	
 	}
-	// line.p1.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2);
-	// line.p1.y = lineOff;
-	// line.p2.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2);
-	// line.p2.y = lineH + lineOff;
-	// rasterization(line, &data->img_data, rgb_to_int(color));
 }
 
 void	draw_rays_2d(t_cub3D_data *data)

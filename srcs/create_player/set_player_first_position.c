@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:17:17 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/26 05:23:52 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 08:01:51 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ void	set_player_orientation(t_player *player)
 	float	d_pi;
 
 	d_pi = M_PI / 2;
-	if (player->orientation == NORTH)
-		player->angle = 1 * d_pi;
+	if (player->orientation == EAST)
+		player->angle = 0;
 	else if (player->orientation == SOUTH)
-		player->angle = 3 * d_pi;
+		player->angle = 1 * d_pi;
 	else if (player->orientation == WEST)
-		player->angle = M_PI;
-	else if (player->orientation == EAST)
-		player->angle = 0; //tester avec un depart a l'est
+		player->angle = 2 * d_pi;
+	else if (player->orientation == NORTH)
+		player->angle = 3 * d_pi;
 	player->delta_x = cos(player->angle);
 	player->delta_y = -sin(player->angle);
 }
