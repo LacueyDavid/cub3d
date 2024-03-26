@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:17:17 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/25 00:12:43 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 02:12:20 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static bool	is_cardinal_point(t_map_enum map_enum)
 	return (map_enum == NORTH || map_enum == SOUTH
 		|| map_enum == EAST || map_enum == WEST);
 }
+#include <stdio.h>
 
 void	set_first_player_position(t_player *player, t_map_data *map_data)
 {

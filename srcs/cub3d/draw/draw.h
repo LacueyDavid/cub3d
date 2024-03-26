@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:23:31 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/21 10:57:30 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 01:50:00 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct ray
 {
-	float negative_invert_tan;
-	float negative_tan;
+	float invert_tan;
+	float tan;
 	float angle;
 	float x;
 	float y;

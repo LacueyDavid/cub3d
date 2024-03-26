@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/25 00:13:04 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 00:33:29 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	do_s_key(t_cub3D_data *data)
 static void	do_a_key(t_cub3D_data *data)
 {
 	data->player.angle += 0.1;
-	if (data->player.angle < 0)
-		data->player.angle += (2 * M_PI);
+	if (data->player.angle > 2 * M_PI)
+		data->player.angle -= (2 * M_PI);
 	data->player.delta_x = cos(data->player.angle);
 	data->player.delta_y = -sin(data->player.angle);
 }
@@ -38,8 +38,8 @@ static void	do_a_key(t_cub3D_data *data)
 static void	do_d_key(t_cub3D_data *data)
 {
 	data->player.angle -= 0.1;
-	if (data->player.angle > 2 * M_PI)
-		data->player.angle -= (2 * M_PI);
+	if (data->player.angle < 0)
+		data->player.angle += (2 * M_PI);
 	data->player.delta_x = cos(data->player.angle);
 	data->player.delta_y = -sin(data->player.angle);
 }
