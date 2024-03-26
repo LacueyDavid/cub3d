@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:17:17 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/26 02:12:20 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 05:23:52 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 #include <stdbool.h>
 #include "parser.h"
 #include "player.h"
-#include "cub3d_useful_values.h"
 
 static bool	is_cardinal_point(t_map_enum map_enum)
 {
 	return (map_enum == NORTH || map_enum == SOUTH
 		|| map_enum == EAST || map_enum == WEST);
 }
-#include <stdio.h>
 
 void	set_first_player_position(t_player *player, t_map_data *map_data)
 {
 	int	x;
 	int	y;
 	int	gap;
-	int	margin;
+	int	center;
 
+	center = (map_data->gap / 2) - 1;
 	y = 0;
 	gap = map_data->gap;
-	margin = WIDTH / 70;
 	while (y < map_data->height)
 	{
 		x = 0;
@@ -40,8 +38,8 @@ void	set_first_player_position(t_player *player, t_map_data *map_data)
 		{
 			if (is_cardinal_point(map_data->map[y][x]))
 			{
-				player->position.x = (x + 1) * gap + margin - (gap / 2) - 1;
-				player->position.y = (y + 1) * gap + margin - (gap / 2) - 1;
+				player->position.x = x * gap + center;
+				player->position.y = y * gap + center;
 				player->orientation = map_data->map[y][x];
 				return ;
 			}

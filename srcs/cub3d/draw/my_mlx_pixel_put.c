@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:24:50 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/18 13:59:34 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 05:25:41 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
 {
 	char	*dst;
 
+	// x += WIDTH / 70;
+	// y += WIDTH / 70;
 	if (x > WIDTH || y > HEIGHT || x < 0 || y < 0)
 		return ;
 	dst = data->address + (y * data->line_length

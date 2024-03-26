@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/26 02:59:15 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/26 07:55:03 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool	reset_image(t_img_data *img_data)
 void	looking_left(t_cub3D_data *data, t_ray *ray)
 {
 	int gap = data->map_data.gap;
+
 	ray->x = (((int)data->player.position.x / gap) * gap) + gap;
 	ray->y = (data->player.position.x - ray->x) * ray->tan + data->player.position.y;
 	ray->x_offset = gap;
@@ -46,6 +47,7 @@ void	looking_left(t_cub3D_data *data, t_ray *ray)
 void	looking_right(t_cub3D_data *data, t_ray *ray)
 {
 	int gap = data->map_data.gap;
+
 	ray->x = (((int)data->player.position.x / gap) * gap) - 0.0001;
 	ray->y = (data->player.position.x - ray->x) * ray->tan + data->player.position.y;
 	ray->x_offset = -gap;
@@ -55,8 +57,8 @@ void	looking_right(t_cub3D_data *data, t_ray *ray)
 void	looking_up(t_cub3D_data *data, t_ray *ray)
 {
 	int gap = data->map_data.gap;
-	ray->y =  (((int)data->player.position.y / gap) * gap) - 0.0001;
-	printf(" looking down ray->y = %f\n", ray->y);
+
+	ray->y = (((int)data->player.position.y / gap) * gap) - 0.0001;
 	ray->x = (data->player.position.y - ray->y) * ray->invert_tan + data->player.position.x;
 	ray->y_offset = -gap;
 	ray->x_offset = -ray->y_offset * ray->invert_tan;
@@ -65,6 +67,7 @@ void	looking_up(t_cub3D_data *data, t_ray *ray)
 void	looking_down(t_cub3D_data *data, t_ray *ray)
 {
 	int gap = data->map_data.gap;
+
 	ray->y = (((int)data->player.position.y / gap) * gap) + gap;
 	ray->x = (data->player.position.y - ray->y) * ray->invert_tan + data->player.position.x;
 	ray->y_offset = gap;
@@ -87,15 +90,20 @@ int	is_wall(t_cub3D_data *data, int x, int y)
 	return (0);
 }
 
-void	draw_ray(t_cub3D_data *data, t_ray *ray)
+void	draw_minimap_2d_ray(t_cub3D_data *data, t_ray *ray)
 {
 	t_line	line;
+	t_color_rgb	color;
+
+	color.r = 0;
+	color.g = 255;
+	color.b = 255;
 
 	line.p1.x = (int)data->player.position.x;
 	line.p1.y = (int)data->player.position.y;
 	line.p2.x = (int)ray->x;
 	line.p2.y = (int)ray->y;
-	rasterization(line, &data->img_data, rgb_to_int(data->player.color));
+	rasterization(line, &data->img_data, rgb_to_int(color));
 }
 
 void	fire_horizontal_ray(t_cub3D_data *data, t_ray *ray, int *bigger, float *disH)
@@ -103,17 +111,12 @@ void	fire_horizontal_ray(t_cub3D_data *data, t_ray *ray, int *bigger, float *dis
 	int		map_x;
 	int		map_y;
 	int		gap;
-	int		margin;
 
-	margin = WIDTH / 70;
 	gap = data->map_data.gap;
 	while (ray->depth_of_field < *bigger)
 	{
-		map_x = (int)((ray->x - margin) / gap);
-		map_y = (int)((ray->y - margin) / gap);
-		printf("map_x = %d, map_y = %d\n", map_x, map_y);
-		printf("ray->x = %f, ray->y = %f\n", ray->x, ray->y);
-		printf("WIDTH / 70 = %d\n", WIDTH / 70);
+		map_x = (int)(ray->x / gap);
+		map_y = (int)(ray->y / gap);
 		if (is_wall(data, map_x, map_y))
 		{
 			ray->depth_of_field = *bigger;
@@ -137,8 +140,8 @@ void	fire_vertical_ray(t_cub3D_data *data, t_ray *ray, int *bigger, float *disV)
 	gap = data->map_data.gap;
 	while (ray->depth_of_field < *bigger)
 	{
-		map_x = (int)((ray->x - WIDTH / 70) / gap);
-		map_y = (int)((ray->y - WIDTH / 70) / gap);
+		map_x = (int)((ray->x) / gap);
+		map_y = (int)((ray->y) / gap);
 		if (is_wall(data, map_x, map_y))
 		{
 			ray->depth_of_field = *bigger;
@@ -155,6 +158,46 @@ void	fire_vertical_ray(t_cub3D_data *data, t_ray *ray, int *bigger, float *disV)
 	ray->vy = ray->y;
 }
 
+void	draw_3d_walls(t_cub3D_data *data, t_ray *ray, float disH)
+{
+	int				lineH;
+	t_line			line;
+	t_color_rgb		color;
+	int				lineOff;
+	float			cosinus_angle;
+
+
+	cosinus_angle = data->player.angle - ray->angle;
+	if (cosinus_angle < 0)
+		cosinus_angle += 2 * M_PI;
+	if (cosinus_angle > 2 * M_PI)
+		cosinus_angle -= 2 * M_PI;
+	disH = disH * cos(cosinus_angle);
+	lineH = (HEIGHT * (data->map_data.gap / 2 * 3)) / disH;
+	if (lineH > HEIGHT)
+		lineH = HEIGHT;
+	lineOff = HEIGHT / 2 - (lineH>>1);
+	color.r = 255;
+	color.g = 255;
+	color.b = 0;
+	int ray_v_nb = 1;
+	while (ray_v_nb <= 20)
+	{
+		line.p1.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2) + ray_v_nb;
+		line.p1.y = lineOff;
+		line.p2.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2) + ray_v_nb;
+		line.p2.y = lineH + lineOff;
+		rasterization(line, &data->img_data, rgb_to_int(color));
+		ray_v_nb++;
+	
+	}
+	// line.p1.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2);
+	// line.p1.y = lineOff;
+	// line.p2.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2);
+	// line.p2.y = lineH + lineOff;
+	// rasterization(line, &data->img_data, rgb_to_int(color));
+}
+
 void	draw_rays_2d(t_cub3D_data *data)
 {
 	t_ray	ray;
@@ -167,7 +210,12 @@ void	draw_rays_2d(t_cub3D_data *data)
 	bigger = which_is_bigger(data->map_data.width, data->map_data.height);
 	ray.angle = data->player.angle;
 	ray.numbers = 0;
-	while (ray.numbers < 1)
+	ray.angle = data->player.angle + (M_PI / 180) * (FOV / 2);
+	if (ray.angle < 0)
+		ray.angle += 2 * M_PI;
+	if (ray.angle > 2 * M_PI)
+		ray.angle -= 2 * M_PI;
+	while (ray.numbers < FOV)
 	{
 		// vertical rays
 		ray.tan = tan(ray.angle);
@@ -193,10 +241,18 @@ void	draw_rays_2d(t_cub3D_data *data)
 		{
 			ray.x = ray.vx;
 			ray.y = ray.vy;
+			ray.distance = disV;
 			disH = disV;
 		}
-		draw_ray(data, &ray);
+		ray.distance = disH;
+		draw_minimap_2d_ray(data, &ray);
+		draw_3d_walls(data, &ray, disH);
 		ray.numbers += 1;
+		ray.angle -= (M_PI / 180);
+		if (ray.angle < 0)
+			ray.angle += 2 * M_PI;
+		if (ray.angle > 2 * M_PI)
+			ray.angle -= 2 * M_PI;
 	}
 }
 
@@ -204,10 +260,10 @@ void	draw_rays_2d(t_cub3D_data *data)
 int	cub3d(t_cub3D_data *data)
 {
 	reset_image(&data->img_data);
+	draw_rays_2d(data);
 	draw_minimap(data);
 	draw_player(data->player, data->img_data);
-	draw_rays_2d(data);
 	mlx_put_image_to_window(data->window.mlx,
-							data->window.address, data->img_data.img, 0, 0);
+		data->window.address, data->img_data.img, 0, 0);
 	return (1);
 }
