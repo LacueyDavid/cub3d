@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/26 08:30:58 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/27 14:03:22 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int	which_is_bigger(int a, int b)
 	if (a > b)
 		return (a);
 	return (b);
+}
+
+int	which_is_lower(int a, int b)
+{
+	if (a > b)
+		return (b);
+	return (a);
 }
 
 bool	reset_image(t_img_data *img_data)
@@ -165,31 +172,28 @@ void	draw_3d_walls(t_cub3D_data *data, t_ray *ray, float disH)
 	t_color_rgb		color;
 	int				lineOff;
 	float			cosinus_angle;
+	int				bigger;
 
-
+	bigger = which_is_lower(WIDTH, HEIGHT);
 	cosinus_angle = data->player.angle - ray->angle;
 	if (cosinus_angle < 0)
 		cosinus_angle += 2 * M_PI;
 	if (cosinus_angle > 2 * M_PI)
 		cosinus_angle -= 2 * M_PI;
 	disH = disH * cos(cosinus_angle);
-	lineH = (HEIGHT * (data->map_data.gap / 2 * 3)) / disH;
-	if (lineH > HEIGHT)
-		lineH = HEIGHT;
-	lineOff = HEIGHT / 2 - (lineH>>1);
+	lineH = (bigger * (data->map_data.gap)) / disH;
+	if (lineH > bigger)
+		lineH = bigger;
+	lineOff = bigger / 2 - (lineH>>1);
 	color.r = 255;
 	color.g = 255;
 	color.b = 0;
-	int ray_v_nb = 1;
-	while (ray_v_nb <= 20)
-	{
-		line.p1.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2) + ray_v_nb;
-		line.p1.y = lineOff;
-		line.p2.x = ray->numbers * 20 + (WIDTH / 2) - (FOV  * 20 / 2) + ray_v_nb;
-		line.p2.y = lineH + lineOff;
-		rasterization(line, &data->img_data, rgb_to_int(color));
-		ray_v_nb++;
-	}
+	int ray_v_nb = 0;
+	line.p1.x = ray->numbers + (WIDTH / 2) - (FOV    / 2) + ray_v_nb;
+	line.p1.y = lineOff;
+	line.p2.x = ray->numbers + (WIDTH / 2) - (FOV    / 2) + ray_v_nb;
+	line.p2.y = lineH + lineOff;
+	rasterization(line, &data->img_data, rgb_to_int(color));
 }
 
 void	draw_rays_2d(t_cub3D_data *data)
@@ -204,7 +208,7 @@ void	draw_rays_2d(t_cub3D_data *data)
 	bigger = which_is_bigger(data->map_data.width, data->map_data.height);
 	ray.angle = data->player.angle;
 	ray.numbers = 0;
-	ray.angle = data->player.angle + (M_PI / 180) * (FOV / 2);
+	ray.angle = data->player.angle + (M_PI / 180 / 20) * (FOV / 2);
 	if (ray.angle < 0)
 		ray.angle += 2 * M_PI;
 	if (ray.angle > 2 * M_PI)
@@ -242,7 +246,7 @@ void	draw_rays_2d(t_cub3D_data *data)
 		draw_minimap_2d_ray(data, &ray);
 		draw_3d_walls(data, &ray, disH);
 		ray.numbers += 1;
-		ray.angle -= (M_PI / 180);
+		ray.angle -= (M_PI / 180 / 20);
 		if (ray.angle < 0)
 			ray.angle += 2 * M_PI;
 		if (ray.angle > 2 * M_PI)
@@ -258,6 +262,6 @@ int	cub3d(t_cub3D_data *data)
 	draw_minimap(data);
 	draw_player(data->player, data->img_data);
 	mlx_put_image_to_window(data->window.mlx,
-		data->window.address, data->img_data.img, 0, 0);
+							data->window.address, data->img_data.img, 0, 0);
 	return (1);
 }
