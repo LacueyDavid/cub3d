@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/19 10:31:46 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 07:59:57 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	set_player_color(t_player *player)
 
 bool	create_player(t_player *player, t_map_data *map_data)
 {
+	player->speed = (float)map_data->gap / 75;
+	player->rotate_speed = (float)map_data->gap / 400;
 	set_player_size(player, map_data);
 	set_player_color(player);
 	set_first_player_position(player, map_data);

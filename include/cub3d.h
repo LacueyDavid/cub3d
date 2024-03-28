@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/20 12:01:00 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 06:39:35 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,25 @@
 # include "parser.h"
 # include "player.h"
 
+typedef struct s_keys
+{
+	bool	w;
+	bool	s;
+	bool	a;
+	bool	d;
+	bool	arrow_left;
+	bool	arrow_right;
+	bool	tab;
+	bool	shift;
+}				t_keys;
+
 typedef struct s_cub3D_data
 {
 	t_map_data	map_data;
 	t_window	window;
 	t_img_data	img_data;
 	t_player	player;
+	t_keys		key;
 }	t_cub3D_data;
 
 // main programe

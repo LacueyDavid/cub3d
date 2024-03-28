@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:45:58 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/15 10:45:59 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 06:40:38 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,22 @@
 
 # ifndef D_KEY_CODE
 #  define D_KEY_CODE 100
+# endif
+
+# ifndef ARROW_LEFT_CODE
+#  define ARROW_LEFT_CODE 0xff51
+# endif
+
+# ifndef ARROW_RIGHT_CODE
+#  define ARROW_RIGHT_CODE 0xff53
+# endif
+
+# ifndef TAB_CODE
+#  define TAB_CODE 0xff09
+# endif
+
+# ifndef SHIFT_CODE
+#  define SHIFT_CODE 0xffe1
 # endif
 
 #endif

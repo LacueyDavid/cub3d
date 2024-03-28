@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:07:13 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 02:02:55 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 05:03:47 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	draw_rays(t_cub3D_data *data)
 	while (ray.numbers < ray.max)
 	{
 		set_current_ray_distance(&ray, data);
-		draw_minimap_2d_ray(data, &ray);
+		if (data->key.tab)
+			draw_minimap_2d_ray(data, &ray);
 		draw_3d_walls(data, &ray);
 		prepare_next_ray(&ray);
 	}

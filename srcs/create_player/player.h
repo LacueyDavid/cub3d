@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:10 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/20 12:05:01 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 07:57:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_player
 	float		angle;
 	t_color_rgb	color;
 	float		size;
+	float		speed;
+	float		rotate_speed;
 }				t_player;
 
 void	set_player_size(t_player *player, t_map_data *map_data);
