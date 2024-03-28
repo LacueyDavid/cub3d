@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:52:33 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/18 13:25:31 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 01:18:28 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ int		ft_strlen(const char *s);
 int		rgb_to_int(t_color_rgb color_rgb);
 char	**ft_realloc(char **file, char *line);
 void	free_file(char **file);
+int		which_is_bigger(int a, int b);
+int		which_is_lower(int a, int b);
+void	set_color(t_color_rgb *color, int r, int g, int b);
 
 #endif

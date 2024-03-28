@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/26 06:15:24 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 02:02:18 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ typedef struct s_map_data
 	t_map_enum	**map;
 	int			width;
 	int			height;
+	int			biggest_side;
+	int			smallest_side;
 	char		*north_img;
+	int			screen_smallest_side;
 	char		*south_img;
 	char		*east_img;
 	char		*west_img;

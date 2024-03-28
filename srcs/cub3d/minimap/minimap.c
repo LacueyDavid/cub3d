@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:43:52 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/26 05:08:30 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 02:07:18 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	draw_minimap_wall(t_cub3D_data *data, int x, int y, int gap)
 		x = start_x;
 		while (x < start_x + gap)
 		{
-			my_mlx_pixel_put(&data->img_data, y  , x ,
+			my_mlx_pixel_put(&data->img_data, y, x,
 				rgb_to_int(data->map_data.minimap_wall_color));
 			x++;
 		}

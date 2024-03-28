@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:13:37 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/26 05:13:44 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 02:05:21 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void	ensure_player_is_in_map(t_cub3D_data *data)
 	int	one_block;
 
 	one_block = data->map_data.gap;
-	if (data->player.position.x < 0 )
-		data->player.position.x = 0 ;
-	if (data->player.position.x > one_block * data->map_data.width )
-		data->player.position.x = one_block * data->map_data.width ;
-	if (data->player.position.y < 0 )
-		data->player.position.y = 0 ;
+	if (data->player.position.x < 0)
+		data->player.position.x = 0;
+	if (data->player.position.x > one_block * data->map_data.width)
+		data->player.position.x = one_block * data->map_data.width;
+	if (data->player.position.y < 0)
+		data->player.position.y = 0;
 	if (data->player.position.y > one_block * data->map_data.height)
 		data->player.position.y = one_block * data->map_data.height;
 }

@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/26 06:15:24 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/28 02:04:57 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,16 @@ bool	fill_file(char ***file, char *filepath)
 
 void	set_gap(t_map_data *map_data)
 {
+	int	lower;
+
+	map_data->screen_smallest_side = which_is_lower(WIDTH, HEIGHT);
+	lower = map_data->screen_smallest_side;
 	if (map_data->width > map_data->height)
-		map_data->gap = (WIDTH / 4) / map_data->width;
+		map_data->gap = (lower / 4) / map_data->width;
 	else
-		map_data->gap = (HEIGHT / 4) / map_data->height;
+		map_data->gap = (lower / 4) / map_data->height;
+	if (map_data->gap < 1)
+		map_data->gap = 1;
 }
 
 // bloc ligne 71 a 80 a revoir (refacto les 3 fonction get du bloc)
@@ -88,6 +94,8 @@ bool	parsing_map(char *filepath, t_map_data *map_data)
 	(free_file(file));
 	set_minimap_colors(map_data);
 	set_gap(map_data);
+	map_data->biggest_side = which_is_bigger(map_data->width, map_data->height);
+	map_data->smallest_side = which_is_lower(map_data->width, map_data->height);
 	return (return_value);
 }
 /// if needed uncomment to print the map

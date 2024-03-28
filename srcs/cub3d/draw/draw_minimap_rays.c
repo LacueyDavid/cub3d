@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_useful_values.h                              :+:      :+:    :+:   */
+/*   draw_minimap_rays.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 10:46:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 00:51:45 by dlacuey          ###   ########.fr       */
+/*   Created: 2024/03/28 01:21:41 by dlacuey           #+#    #+#             */
+/*   Updated: 2024/03/28 01:47:02 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_USEFUL_VALUES_H
-# define CUB3D_USEFUL_VALUES_H
+#include "cub3d.h"
+#include "draw.h"
 
-# ifndef WIDTH
-#  define WIDTH 1360
-# endif
+void	draw_minimap_2d_ray(t_cub3D_data *data, t_ray *ray)
+{
+	t_line		line;
+	t_color_rgb	color;
 
-# ifndef HEIGHT
-#  define HEIGHT 720
-# endif
-
-# ifndef FOV
-#  define FOV 60
-# endif
-
-#endif
+	color.r = 0;
+	color.g = 255;
+	color.b = 255;
+	line.p1.x = (int)data->player.position.x;
+	line.p1.y = (int)data->player.position.y;
+	line.p2.x = (int)ray->x;
+	line.p2.y = (int)ray->y;
+	rasterization(line, &data->img_data, rgb_to_int(color));
+}
