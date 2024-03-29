@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/29 14:35:29 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:53:17 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static void	ensure_player_is_in_map(t_cub3D_data *data)
 		data->player.position.y = one_block * data->map_data.height;
 }
 
+// may add fps for bonus but need time function
 void	key_gestion(t_cub3D_data *data)
 {
-	// may add fps for bonus but need time function
 	reset_player(data);
 	do_shift_key(data);
 	do_movement_keys(data);
@@ -61,7 +61,7 @@ int	cub3d(t_cub3D_data *data)
 		draw_player(data->player, data->img_data);
 	}
 	mlx_put_image_to_window(data->window.mlx,
-							data->window.address, data->img_data.img, 0, 0);
+		data->window.address, data->img_data.img, 0, 0);
 	mlx_do_sync(data->window.mlx);
 	return (1);
 }

@@ -6,69 +6,69 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:18:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 14:40:25 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:06:32 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "hooks.h"
 
-static void do_w_key(t_cub3D_data *data, t_handle_walls *handle_walls)
+static void	do_w_key(t_cub3D_data *d, t_handle_walls *hw)
 {
-	if (data->key.w )
+	if (d->key.w)
 	{
-		if (data->map_data.map[handle_walls->ipy][handle_walls->ipx_add_xo] != WALL)
+		if (d->map_data.map[hw->ipy][hw->ipx_add_xo] != WALL)
 		{
-			data->player.position.x += data->player.delta_x * data->player.speed;
+			d->player.position.x += d->player.delta_x * d->player.speed;
 		}
-		if (data->map_data.map[handle_walls->ipy_add_yo][handle_walls->ipx] != WALL)
+		if (d->map_data.map[hw->ipy_add_yo][hw->ipx] != WALL)
 		{
-			data->player.position.y += data->player.delta_y * data->player.speed;
+			d->player.position.y += d->player.delta_y * d->player.speed;
 		}
 	}
 }
 
-static void do_s_key(t_cub3D_data *data, t_handle_walls *handle_walls)
+static void	do_s_key(t_cub3D_data *d, t_handle_walls *hw)
 {
-	if (data->key.s)
+	if (d->key.s)
 	{
-		if (data->map_data.map[handle_walls->ipy][handle_walls->ipx_sub_xo] != WALL)
+		if (d->map_data.map[hw->ipy][hw->ipx_sub_xo] != WALL)
 		{
-			data->player.position.x -= data->player.delta_x * data->player.speed;
+			d->player.position.x -= d->player.delta_x * d->player.speed;
 		}
-		if (data->map_data.map[handle_walls->ipy_sub_yo][handle_walls->ipx] != WALL)
+		if (d->map_data.map[hw->ipy_sub_yo][hw->ipx] != WALL)
 		{
-			data->player.position.y -= data->player.delta_y * data->player.speed;
+			d->player.position.y -= d->player.delta_y * d->player.speed;
 		}
 	}
 }
 
-static void do_a_key(t_cub3D_data *data, t_handle_walls *handle_walls)
+static void	do_a_key(t_cub3D_data *d, t_handle_walls *hw)
 {
-	if (data->key.a)
+	if (d->key.a)
 	{
-		if (data->map_data.map[handle_walls->ipy][handle_walls->ipx_add_xod] != WALL)
+		if (d->map_data.map[hw->ipy][hw->ipx_add_xod] != WALL)
 		{
-			data->player.position.x += data->player.delta_y * data->player.speed;
+			d->player.position.x += d->player.delta_y * d->player.speed;
 		}
-		if (data->map_data.map[handle_walls->ipy_sub_yod][handle_walls->ipx] != WALL)
+		if (d->map_data.map[hw->ipy_sub_yod][hw->ipx] != WALL)
 		{
-			data->player.position.y -= data->player.delta_x * data->player.speed;
+			d->player.position.y -= d->player.delta_x * d->player.speed;
 		}
 	}
 }
 
-static void do_d_key(t_cub3D_data *data, t_handle_walls *handle_walls)
+static void	do_d_key(t_cub3D_data *d, t_handle_walls *hw)
 {
-	if (data->key.d)
+	if (d->key.d)
 	{
-		if (data->map_data.map[handle_walls->ipy][handle_walls->ipx_sub_xod] != WALL)
+		if (d->map_data.map[hw->ipy][hw->ipx_sub_xod] != WALL)
 		{
-			data->player.position.x -= data->player.delta_y * data->player.speed;
+			d->player.position.x -= d->player.delta_y * d->player.speed;
 		}
-		if (data->map_data.map[handle_walls->ipy_add_yod][handle_walls->ipx] != WALL)
+		if (d->map_data.map[hw->ipy_add_yod][hw->ipx] != WALL)
 		{
-			data->player.position.y += data->player.delta_x * data->player.speed;
+			d->player.position.y += d->player.delta_x * d->player.speed;
 		}
 	}
 }

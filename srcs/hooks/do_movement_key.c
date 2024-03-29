@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:36:07 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 14:43:59 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:54:07 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "hooks.h"
 #include <math.h>
 
-void init_handle_walls(t_handle_walls *handle_walls, t_cub3D_data *data)
+void	init_handle_walls(t_handle_walls *handle_walls, t_cub3D_data *data)
 {
-	int gap;
-	int pos_x;
-	int pos_y;
+	int	gap;
+	int	pos_x;
+	int	pos_y;
 
 	gap = data->map_data.gap;
 	pos_x = data->player.position.x;
@@ -43,7 +43,7 @@ void init_handle_walls(t_handle_walls *handle_walls, t_cub3D_data *data)
 	handle_walls->ipy = (int)pos_y / gap;
 }
 
-void do_arrow_left_key(t_cub3D_data *data)
+void	do_arrow_left_key(t_cub3D_data *data)
 {
 	if (data->key.arrow_left)
 	{
@@ -55,7 +55,7 @@ void do_arrow_left_key(t_cub3D_data *data)
 	}
 }
 
-void do_arrow_right_key(t_cub3D_data *data)
+void	do_arrow_right_key(t_cub3D_data *data)
 {
 	if (data->key.arrow_right)
 	{

@@ -6,29 +6,29 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:24:26 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 14:38:40 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:53:35 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HOOKS_H
 # define HOOKS_H
 
-#include "cub3d.h"
+# include "cub3d.h"
 
 typedef struct s_handle_walls
 {
-	int x_offset;
-	int y_offset;
-	int ipx;
-	int ipy;
-	int ipx_add_xo;
-	int ipy_add_yo;
-	int ipx_sub_xo;
-	int ipy_sub_yo;
-	int ipx_add_xod;
-	int ipy_add_yod;
-	int ipx_sub_xod;
-	int ipy_sub_yod;
+	int			x_offset;
+	int			y_offset;
+	int			ipx;
+	int			ipy;
+	int			ipx_add_xo;
+	int			ipy_add_yo;
+	int			ipx_sub_xo;
+	int			ipy_sub_yo;
+	int			ipx_add_xod;
+	int			ipy_add_yod;
+	int			ipx_sub_xod;
+	int			ipy_sub_yod;
 }				t_handle_walls;
 
 void	do_key_press(t_cub3D_data *data, int keycode);
