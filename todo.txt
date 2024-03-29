@@ -1,2 +1,0 @@
-fixe les pb de l'angle du au fait que ce sont des radiant, faire des angle des
-degres PUIS les transformer en radiant.
