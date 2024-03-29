@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:24:26 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 14:53:35 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:10:49 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	init_handle_walls(t_handle_walls *handle_walls, t_cub3D_data *data);
 void	do_arrow_left_key(t_cub3D_data *data);
 void	do_arrow_right_key(t_cub3D_data *data);
 void	do_movement_keys(t_cub3D_data *data);
+void	init_keys(t_keys *keys);
 
 #endif

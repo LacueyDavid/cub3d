@@ -6,12 +6,25 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 08:18:23 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:10:56 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "keycode.h"
+
+void	init_keys(t_keys *keys)
+{
+	keys->w = false;
+	keys->s = false;
+	keys->a = false;
+	keys->d = false;
+	keys->arrow_left = false;
+	keys->arrow_right = false;
+	keys->tab = true;
+	keys->shift = false;
+	keys->r = false;
+}
 
 void	do_key_press(t_cub3D_data *data, int keycode)
 {
