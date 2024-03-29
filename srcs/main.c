@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 06:39:43 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 07:52:52 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	init_keys(t_keys *keys)
 	keys->arrow_right = false;
 	keys->tab = true;
 	keys->shift = false;
+	keys->r = false;
 }
 
 int	main(int argc, char **argv)

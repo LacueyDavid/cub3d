@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/28 08:49:09 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 08:18:39 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,19 @@ static void	ensure_player_is_in_map(t_cub3D_data *data)
 
 void	key_gestion(t_cub3D_data *data)
 {
+	if (data->key.r)
+	{
+		data->player.position.x = data->player.first_position.x;
+		data->player.position.y = data->player.first_position.y;
+		data->player.angle = data->player.first_angle;
+		data->player.delta_x = cos(data->player.angle);
+		data->player.delta_y = -sin(data->player.angle);
+	}
 	if (data->key.shift)
 		data->player.speed = (float)data->map_data.gap / 25;
 	else
 		data->player.speed = (float)data->map_data.gap / 75;
-	// may add fps for bonus but need time machine
+	// may add fps for bonus but need time function
 	int x_offset;
 	int y_offset;
 	int ipx;

@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:10 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 07:57:04 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 08:15:12 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 typedef struct s_player
 {
+	t_point		first_position;
+	float		first_angle;
 	float		orientation;
 	t_point		position;
 	float		delta_x;

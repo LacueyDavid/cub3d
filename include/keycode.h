@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:45:58 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 06:40:38 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 08:04:26 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@
 
 # ifndef SHIFT_CODE
 #  define SHIFT_CODE 0xffe1
+# endif
+
+# ifndef R_KEY_CODE
+#  define R_KEY_CODE 0x72
 # endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/28 02:04:57 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 08:30:14 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	set_gap(t_map_data *map_data)
 		map_data->gap = (lower / 4) / map_data->width;
 	else
 		map_data->gap = (lower / 4) / map_data->height;
-	if (map_data->gap < 1)
-		map_data->gap = 1;
+	if (map_data->gap < 5)
+		map_data->gap = 5;
 }
 
 // bloc ligne 71 a 80 a revoir (refacto les 3 fonction get du bloc)

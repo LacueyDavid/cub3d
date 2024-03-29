@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 06:39:15 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 08:18:23 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	do_key_press(t_cub3D_data *data, int keycode)
 		data->key.tab = !data->key.tab;
 	if (keycode == SHIFT_CODE)
 		data->key.shift = true;
+	if (keycode == R_KEY_CODE)
+		data->key.r = true;
 }
 
 void	do_key_release(t_cub3D_data *data, int keycode)
@@ -49,4 +51,6 @@ void	do_key_release(t_cub3D_data *data, int keycode)
 		data->key.arrow_right = false;
 	if (keycode == SHIFT_CODE)
 		data->key.shift = false;
+	if (keycode == R_KEY_CODE)
+		data->key.r = false;
 }

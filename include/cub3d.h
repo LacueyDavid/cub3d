@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/28 06:39:35 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 07:50:32 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_keys
 	bool	arrow_right;
 	bool	tab;
 	bool	shift;
+	bool	r;
+	bool	h;
 }				t_keys;
 
 typedef struct s_cub3D_data

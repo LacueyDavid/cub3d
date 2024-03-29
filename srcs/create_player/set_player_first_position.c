@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:17:17 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/26 08:01:51 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/03/29 07:53:54 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	set_first_player_position(t_player *player, t_map_data *map_data)
 			{
 				player->position.x = x * gap + center;
 				player->position.y = y * gap + center;
+				player->first_position = player->position;
 				player->orientation = map_data->map[y][x];
 				return ;
 			}
