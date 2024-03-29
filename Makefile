@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/28 01:54:24 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/03/29 14:39:17 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,9 @@ OBJS =													\
 				terminate_session.o						\
 				key_board_hooks.o						\
 				do_key.o								\
+				bonus_keys.o							\
+				movement_key.o							\
+				do_movement_key.o						\
 				)										\
 														\
 				$(addprefix initialization/,			\
