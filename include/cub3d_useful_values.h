@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:46:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 08:59:47 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/04 11:19:33 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define CUB3D_USEFUL_VALUES_H
 
 # ifndef WIDTH
-#  define WIDTH 1920
+#  define WIDTH 1360
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 1080
+#  define HEIGHT 720
 # endif
 
 # ifndef FOV

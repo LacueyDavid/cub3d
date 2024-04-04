@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/29 14:53:17 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/04 10:36:39 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "mlx.h"
 #include "libft_and_utils.h"
 #include "hooks.h"
+#include "parser.h"
 
 bool	reset_image(t_img_data *img_data)
 {

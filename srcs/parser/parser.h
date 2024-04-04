@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 02:02:18 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/04 10:14:19 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdbool.h>
 # include "libft_and_utils.h"
 # include <aio.h>
+# include "image_data.h"
 
 typedef enum e_map_enum
 {
@@ -28,6 +29,16 @@ typedef enum e_map_enum
 	EAST,
 }			t_map_enum;
 
+typedef struct s_imgs
+{
+	void	*mlx;
+	void	*img;
+	int		width;
+	int		height;
+	char	*path;
+	t_img_data	data;
+}				t_imgs;
+
 typedef struct s_map_data
 {
 	t_map_enum	**map;
@@ -35,6 +46,7 @@ typedef struct s_map_data
 	int			height;
 	int			biggest_side;
 	int			smallest_side;
+	t_imgs		img[10];
 	char		*north_img;
 	int			screen_smallest_side;
 	char		*south_img;
