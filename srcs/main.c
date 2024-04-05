@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/04 11:20:12 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 15:53:16 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include "parser.h"
 
+#include <stdio.h>
 void	take_img_path(t_map_data *map_data)
 {
 	map_data->img[NORTH].path = map_data->north_img;
@@ -40,6 +41,11 @@ void	take_img_path(t_map_data *map_data)
 	map_data->img[EAST].img = mlx_xpm_file_to_image(map_data->img[EAST].mlx,
 			map_data->img[EAST].path, &map_data->img[EAST].width,
 			&map_data->img[EAST].height);
+	if (!map_data->img[NORTH].img || !map_data->img[SOUTH].img
+		|| !map_data->img[WEST].img || !map_data->img[EAST].img)
+	{
+		//PROTEGER ICI;
+	}
 	map_data->img[NORTH].data.address = mlx_get_data_addr(map_data->img[NORTH].img,
 			&map_data->img[NORTH].data.bits_per_pixel,
 			&map_data->img[NORTH].data.line_length,
