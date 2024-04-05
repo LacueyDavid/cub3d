@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/04 10:36:39 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 14:39:24 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	key_gestion(t_cub3D_data *data)
 	ensure_player_is_in_map(data);
 }
 
+#include <stdio.h>
 // la fonction reset_image va surement disparaitre plus tard
 int	cub3d(t_cub3D_data *data)
 {
