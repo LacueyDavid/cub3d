@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:23:31 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/04 12:07:44 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 12:19:25 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct ray
 	float	distance;
 	float	distance_v;
 	float	distance_h;
+	float	smallest_distance;
 	float	invert_tan;
 	float	tan;
 	float	angle;
@@ -35,10 +36,11 @@ typedef struct ray
 	float	numbers;
 	int		max;
 	int		depth_of_field;
+	int		lineH;
 }			t_ray;
 
 void	rasterization(t_line line, t_img_data *img, int color);
-void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_imgs texture);
+void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_cub3D_data *data);
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 bool	reset_image(t_img_data *img_data);
 void	draw_minimap(t_cub3D_data *data);

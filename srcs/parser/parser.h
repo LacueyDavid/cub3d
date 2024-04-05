@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/04 10:14:19 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 07:47:39 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ typedef enum e_map_enum
 
 typedef struct s_imgs
 {
-	void	*mlx;
-	void	*img;
-	int		width;
-	int		height;
-	char	*path;
+	void		*mlx;
+	void		*img;
+	int			width;
+	int			height;
+	char		*path;
 	t_img_data	data;
 }				t_imgs;
 

@@ -6,13 +6,14 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:42:36 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/04 12:08:18 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 13:58:55 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 #include "image_data.h"
 #include "draw.h"
+#include "cub3d_useful_values.h"
 #include <stdlib.h>
 
 static t_point	define_direction(t_line line)
@@ -68,14 +69,28 @@ static int	get_pixel_color(t_imgs img, int x, int y)
 	return (color);
 }
 
-void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_imgs texture)
+#include <stdio.h>
+void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_cub3D_data *data)
 {
 	int		error;
 	int		err2;
 	t_point	diff;
 	t_point	direction;
 	int		color;
+	//add
+	t_imgs	texture = data->map_data.img[NORTH];
+	int		gap = data->map_data.gap * texture.width;
+	int		start_y = line.p1.y;
+	int position_y = 0;
+	int position_x = 0;
+	int ecart;
 	(void)ray;
+
+
+	color = 0;
+	ecart = ray->lineH / 2 - HEIGHT / 2;
+	if (ecart < 0)
+		ecart = 0;
 
 
 	direction = define_direction(line);
@@ -84,7 +99,22 @@ void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_imgs tex
 	error = diff.x + diff.y;
 	while (line.p1.x != line.p2.x || line.p1.y != line.p2.y)
 	{
-		color = get_pixel_color(texture, line.p1.x % texture.width, line.p1.y % texture.height);
+		if (ray->smallest_distance == ray->distance_h)
+		{
+			color = get_pixel_color(texture, position_x, position_y);
+			position_y = (ecart + (line.p1.y - start_y)) * texture.height / ray->lineH;
+			if (position_y < 0)
+				position_y = 0;
+			if (position_y >= texture.height)
+				position_y = texture.height - 1;
+			position_x = ((int)(ray->x * texture.width) % gap) * texture.width / gap;
+			if (position_x < 0)
+				position_x = 0;
+			if (position_x >= texture.width)
+				position_x = texture.width - 1;
+		}
+		else
+			color = color_red();
 		my_mlx_pixel_put(img, line.p1.x, line.p1.y, color);
 		err2 = 2 * error;
 		if (err2 >= diff.y)
@@ -98,6 +128,6 @@ void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_imgs tex
 			line.p1.y += direction.y;
 		}
 	}
-	color = get_pixel_color(texture, line.p1.x, line.p1.y);
+	color = get_pixel_color(texture, position_x, position_y);
 	my_mlx_pixel_put(img, line.p1.x, line.p1.y, color);
 }

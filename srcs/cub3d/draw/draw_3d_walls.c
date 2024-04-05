@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:16:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/04 12:04:47 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 13:32:39 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ void	draw_3d_walls(t_cub3D_data *data, t_ray *ray)
 
 	ray->distance = fix_fisheye(data, ray);
 	line_height = (ray->max * (data->map_data.gap)) / ray->distance;
+	ray->lineH = line_height;
 	protect_line_height(&line_height, ray->max);
 	line_offset = ray->max / 2 - line_height / 2;
 	line.p1.x = ray->numbers + (WIDTH / 2) - (ray->max / 2);
 	line.p1.y = line_offset;
 	line.p2.x = ray->numbers + (WIDTH / 2) - (ray->max / 2);
 	line.p2.y = line_height + line_offset;
-	textured_rasterization(line, &data->img_data, ray, data->map_data.img[NORTH]);
+	textured_rasterization(line, &data->img_data, ray, data);
 }

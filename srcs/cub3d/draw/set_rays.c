@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:36:40 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 02:07:42 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 08:02:51 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,13 @@ static void	choose_smallest_distance(t_ray *ray)
 		ray->x = ray->vx;
 		ray->y = ray->vy;
 		ray->distance = ray->distance_v;
+		ray->smallest_distance = ray->distance_v;
 	}
 	else
+	{
 		ray->distance = ray->distance_h;
+		ray->smallest_distance = ray->distance_h;
+	}
 }
 
 void	set_current_ray_distance(t_ray *ray, t_cub3D_data *data)

@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:52:33 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 01:18:28 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/05 08:08:47 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	free_file(char **file);
 int		which_is_bigger(int a, int b);
 int		which_is_lower(int a, int b);
 void	set_color(t_color_rgb *color, int r, int g, int b);
+int		color_red(void);
 
 #endif
