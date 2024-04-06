@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 11:57:58 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:35:02 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_map_data
 	int			gap;
 }				t_map_data;
 
+int			ft_strlen(const char *s);
 void		print_map(t_map_enum **map, int height, int width);
 bool		parsing_map(char *filepath, t_map_data *map);
 int			get_map_size(char **map);

@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 15:31:25 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:51:08 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		return (error_mlx(), EXIT_FAILURE);
 	create_player(&data.player, &data.map_data);
 	cub3d(&data);
-	mouse_hook(&data);
+	//mouse_hook(&data); // Uncomment this line to enable mouse hook (laggy on mac and WSL)
 	key_board_hooks(&data);
 	terminate_session(&data);
 	mlx_loop(data.window.mlx);

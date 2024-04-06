@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:19:45 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 11:57:17 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:34:25 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 #include "libft_and_utils.h"
 #include "get_next_line.h"
 #include <stdlib.h>
+
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 void	ft_bzero(void *s, size_t n)
 {
