@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:24:50 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/18 13:59:34 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:24:09 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,5 @@ void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
 			+ x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+// x += WIDTH / 70;
+// y += WIDTH / 70;

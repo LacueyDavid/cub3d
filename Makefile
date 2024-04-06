@@ -6,13 +6,13 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/04 22:57:18 by jugingas         ###   ########.fr        #
+#    Updated: 2024/04/06 13:30:44 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g3
 
 LDFLAGS = -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
 
@@ -51,7 +51,13 @@ OBJS =													\
 				$(addprefix draw/,						\
 				my_mlx_pixel_put.o						\
 				rasterization.o							\
-				draw.o									\
+				draw_rays.o								\
+				draw_player.o							\
+				draw_3d_walls.o							\
+				draw_minimap_rays.o						\
+				direction_looking.o						\
+				draw_help.o								\
+				set_rays.o								\
 				)										\
 				)										\
 														\
@@ -65,6 +71,9 @@ OBJS =													\
 				terminate_session.o						\
 				key_board_hooks.o						\
 				do_key.o								\
+				bonus_keys.o							\
+				movement_key.o							\
+				do_movement_key.o						\
 				)										\
 														\
 				$(addprefix initialization/,			\
@@ -91,6 +100,7 @@ OBJS =													\
 														\
 				$(addprefix utils/,						\
 				utils.o									\
+				utils2.o								\
 				libft.o									\
 				)										\
 				)										\

@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:45:58 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 15:35:49 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 13:22:32 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,26 @@
 
 # ifndef ALT_KEY_CODE
 #  define ALT_KEY_CODE 65513
+# endif
+
+# ifndef ARROW_LEFT_CODE
+#  define ARROW_LEFT_CODE 0xff51
+# endif
+
+# ifndef ARROW_RIGHT_CODE
+#  define ARROW_RIGHT_CODE 0xff53
+# endif
+
+# ifndef TAB_CODE
+#  define TAB_CODE 0xff09
+# endif
+
+# ifndef SHIFT_CODE
+#  define SHIFT_CODE 0xffe1
+# endif
+
+# ifndef R_KEY_CODE
+#  define R_KEY_CODE 0x72
 # endif
 
 #endif

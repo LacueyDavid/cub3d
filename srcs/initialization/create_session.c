@@ -6,14 +6,13 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:57:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/05 15:43:51 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 13:26:46 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "image_data.h"
 #include "cub3d_useful_values.h"
 #include "mlx.h"
-#include <stdio.h>
 
 bool	create_session(t_window *window, t_img_data *img_data)
 {

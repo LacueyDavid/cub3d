@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/05 00:03:46 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 13:28:19 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,18 @@ bool	fill_file(char ***file, char *filepath)
 
 void	set_gap(t_map_data *map_data)
 {
+	int	lower;
+
+	map_data->screen_smallest_side = which_is_lower(WIDTH, HEIGHT);
+	lower = map_data->screen_smallest_side;
 	if (map_data->width > map_data->height)
-		map_data->gap = (WIDTH / 4) / map_data->width;
+		map_data->gap = (lower / 4) / map_data->width;
 	else
-		map_data->gap = (HEIGHT / 4) / map_data->height;
+		map_data->gap = (lower / 4) / map_data->height;
+	if (map_data->gap < 5)
+		map_data->gap = 5;
 }
 
-// bloc ligne 71 a 80 a revoir (refacto les 3 fonction get du bloc)
-// + des mallocs mal protégés a verifier
 bool	parsing_map(char *filepath, t_map_data *map_data)
 {
 	char	**file;
@@ -95,5 +99,3 @@ bool	parsing_map(char *filepath, t_map_data *map_data)
 	set_gap(map_data);
 	return (true);
 }
-/// if needed uncomment to print the map
-// print_map(map_data->map, map_data->height, map_data->width);

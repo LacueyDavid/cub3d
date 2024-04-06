@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 11:04:21 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 15:42:41 by jugingas         ###   ########.fr       */
+/*   Created: 2024/04/06 13:33:11 by jugingas          #+#    #+#             */
+/*   Updated: 2024/04/06 13:34:38 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMAGE_DATA_H
 # define IMAGE_DATA_H
 
+#include <aio.h>
+#include "libft_and_utils.h"
 # include <stdbool.h>
 
 typedef struct s_window

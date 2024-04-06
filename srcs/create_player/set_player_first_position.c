@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_player_first_position.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:17:17 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/18 13:45:34 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:23:54 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdbool.h>
 #include "parser.h"
 #include "player.h"
-#include "cub3d_useful_values.h"
 
 static bool	is_cardinal_point(t_map_enum map_enum)
 {
@@ -27,11 +26,11 @@ void	set_first_player_position(t_player *player, t_map_data *map_data)
 	int	x;
 	int	y;
 	int	gap;
-	int	margin;
+	int	center;
 
+	center = (map_data->gap / 2) - 1;
 	y = 0;
 	gap = map_data->gap;
-	margin = WIDTH / 70;
 	while (y < map_data->height)
 	{
 		x = 0;
@@ -39,8 +38,9 @@ void	set_first_player_position(t_player *player, t_map_data *map_data)
 		{
 			if (is_cardinal_point(map_data->map[y][x]))
 			{
-				player->position.x = (x + 1) * gap + margin - (gap / 2) - 1;
-				player->position.y = (y + 1) * gap + margin - (gap / 2) - 1;
+				player->position.x = x * gap + center;
+				player->position.y = y * gap + center;
+				player->first_position = player->position;
 				player->orientation = map_data->map[y][x];
 				return ;
 			}
@@ -55,14 +55,14 @@ void	set_player_orientation(t_player *player)
 	float	d_pi;
 
 	d_pi = M_PI / 2;
-	if (player->orientation == NORTH)
-		player->angle = 3 * d_pi;
-	else if (player->orientation == SOUTH)
-		player->angle = d_pi;
-	else if (player->orientation == WEST)
-		player->angle = M_PI;
-	else if (player->orientation == EAST)
+	if (player->orientation == EAST)
 		player->angle = 0;
-	player->delta_x = cos(player->angle) * 4;
-	player->delta_y = sin(player->angle) * 4;
+	else if (player->orientation == SOUTH)
+		player->angle = 1 * d_pi;
+	else if (player->orientation == WEST)
+		player->angle = 2 * d_pi;
+	else if (player->orientation == NORTH)
+		player->angle = 3 * d_pi;
+	player->delta_x = cos(player->angle);
+	player->delta_y = -sin(player->angle);
 }

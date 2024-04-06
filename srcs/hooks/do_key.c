@@ -6,56 +6,67 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 15:38:29 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/06 13:44:38 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "hooks.h"
 #include "keycode.h"
-#include <stdio.h>
-#include <math.h>
+#include "hooks.h"
 
-static void	do_w_key(t_cub3D_data *data)
+void	init_keys(t_keys *keys)
 {
-	data->player.position.x += data->player.delta_x;
-	data->player.position.y += data->player.delta_y;
+	keys->w = false;
+	keys->s = false;
+	keys->a = false;
+	keys->d = false;
+	keys->arrow_left = false;
+	keys->arrow_right = false;
+	keys->tab = true;
+	keys->shift = false;
+	keys->r = false;
 }
 
-static void	do_s_key(t_cub3D_data *data)
-{
-	data->player.position.x -= data->player.delta_x;
-	data->player.position.y -= data->player.delta_y;
-}
-
-static void	do_a_key(t_cub3D_data *data)
-{
-	data->player.angle -= 0.1;
-	if (data->player.angle < 0)
-		data->player.angle += (2 * M_PI);
-	data->player.delta_x = cos(data->player.angle) * 4;
-	data->player.delta_y = sin(data->player.angle) * 4;
-}
-
-static void	do_d_key(t_cub3D_data *data)
-{
-	data->player.angle += 0.1;
-	if (data->player.angle > 2 * M_PI)
-		data->player.angle -= (2 * M_PI);
-	data->player.delta_x = cos(data->player.angle) * 4;
-	data->player.delta_y = sin(data->player.angle) * 4;
-}
-
-void	do_key(t_cub3D_data *data, int keycode)
+void	do_key_press(t_cub3D_data *data, int keycode)
 {
 	if (keycode == ALT_KEY_CODE)
 		do_alt_key(data);
 	if (keycode == W_KEY_CODE)
-		do_w_key(data);
+		data->key.w = true;
 	if (keycode == S_KEY_CODE)
-		do_s_key(data);
+		data->key.s = true;
 	if (keycode == A_KEY_CODE)
-		do_a_key(data);
+		data->key.a = true;
 	if (keycode == D_KEY_CODE)
-		do_d_key(data);
+		data->key.d = true;
+	if (keycode == ARROW_LEFT_CODE)
+		data->key.arrow_left = true;
+	if (keycode == ARROW_RIGHT_CODE)
+		data->key.arrow_right = true;
+	if (keycode == TAB_CODE)
+		data->key.tab = !data->key.tab;
+	if (keycode == SHIFT_CODE)
+		data->key.shift = true;
+	if (keycode == R_KEY_CODE)
+		data->key.r = true;
+}
+
+void	do_key_release(t_cub3D_data *data, int keycode)
+{
+	if (keycode == W_KEY_CODE)
+		data->key.w = false;
+	if (keycode == S_KEY_CODE)
+		data->key.s = false;
+	if (keycode == A_KEY_CODE)
+		data->key.a = false;
+	if (keycode == D_KEY_CODE)
+		data->key.d = false;
+	if (keycode == ARROW_LEFT_CODE)
+		data->key.arrow_left = false;
+	if (keycode == ARROW_RIGHT_CODE)
+		data->key.arrow_right = false;
+	if (keycode == SHIFT_CODE)
+		data->key.shift = false;
+	if (keycode == R_KEY_CODE)
+		data->key.r = false;
 }
