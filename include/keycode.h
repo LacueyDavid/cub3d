@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   keycode.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 13:00:22 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/18 13:42:17 by dlacuey          ###   ########.fr       */
+/*   Created: 2024/03/15 10:45:58 by dlacuey           #+#    #+#             */
+/*   Updated: 2024/04/05 15:35:49 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef KEYCODE_H
+# define KEYCODE_H
 
-void	error_wrong_extention(void)
-{
-	printf("error: wrong file extention, expected : [filename].cub\n");
-}
+# ifndef ESC_KEY_CODE
+#  define ESC_KEY_CODE 65307
+# endif
 
-void	error_map_not_found(void)
-{
-	printf("error: map file does not exist.\n");
-}
+# ifndef W_KEY_CODE
+#  define W_KEY_CODE 119
+# endif
 
-void	error_parsing(void)
-{
-	printf("error: invalid map\n");
-}
+# ifndef A_KEY_CODE
+#  define A_KEY_CODE 97
+# endif
 
-void	error_usage(void)
-{
-	printf("usage: ./cub [filepath]\n");
-}
+# ifndef S_KEY_CODE
+#  define S_KEY_CODE 115
+# endif
 
-void	error_mlx(void)
-{
-	printf("error: mlx function failure\n");
-}
+# ifndef D_KEY_CODE
+#  define D_KEY_CODE 100
+# endif
+
+# ifndef ALT_KEY_CODE
+#  define ALT_KEY_CODE 65513
+# endif
+
+#endif

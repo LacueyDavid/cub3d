@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   hooks.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 16:24:50 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/14 14:02:21 by jugingas         ###   ########.fr       */
+/*   Created: 2024/03/15 15:24:26 by dlacuey           #+#    #+#             */
+/*   Updated: 2024/04/05 15:43:07 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
+#ifndef HOOKS_H
+# define HOOKS_H
 
-void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
-{
-	char	*dst;
+# define BASE 0.015
+# define MAX 100.0
+# define SCALE 0.0001
 
-	if (x > WIDTH || y > HEIGHT || x < 0 || y < 0)
-		return ;
-	dst = data->address + (y * data->line_length
-			+ x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
+void	ensure_player_is_in_map(t_cub3D_data *data);
+void	do_key(t_cub3D_data *data, int keycode);
+void	do_alt_key(t_cub3D_data *data);
+
+#endif

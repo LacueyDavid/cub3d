@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/14 15:34:01 by jugingas         ###   ########.fr        #
+#    Updated: 2024/04/04 22:57:18 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,17 @@ LDFLAGS = -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
 
 CPPFLAGS =												\
 				-I include/								\
+				-I srcs/get_next_line/					\
+				-I srcs/cub3d/minimap/					\
+				-I srcs/errors/							\
+				-I srcs/create_player/					\
+				-I srcs/parser/							\
+				-I srcs/initialization/					\
+				-I srcs/utils/							\
+				-I srcs/clear/							\
+				-I srcs/hooks/							\
+				-I mlx/									\
+				-I srcs/cub3d/draw/						\
 														\
 
 OBJS =													\
@@ -37,16 +48,23 @@ OBJS =													\
 				$(addprefix minimap/,					\
 				minimap.o								\
 				)										\
-														\
+				$(addprefix draw/,						\
+				my_mlx_pixel_put.o						\
+				rasterization.o							\
+				draw.o									\
+				)										\
 				)										\
 														\
 				$(addprefix errors/,					\
 				error.o									\
+				error_2.o								\
 				)										\
 														\
 				$(addprefix hooks/,						\
+				mouse_hook.o							\
 				terminate_session.o						\
 				key_board_hooks.o						\
+				do_key.o								\
 				)										\
 														\
 				$(addprefix initialization/,			\
@@ -55,6 +73,11 @@ OBJS =													\
 														\
 				$(addprefix create_player/,				\
 				create_player.o							\
+				set_player_first_position.o				\
+				)										\
+														\
+				$(addprefix clear/,						\
+				destroy.o								\
 				)										\
 														\
 				$(addprefix parser/,					\
@@ -66,9 +89,8 @@ OBJS =													\
 				check_map.o								\
 				)										\
 														\
-				$(addprefix to_sort/,					\
+				$(addprefix utils/,						\
 				utils.o									\
-				my_mlx_pixel_put.o						\
 				libft.o									\
 				)										\
 				)										\

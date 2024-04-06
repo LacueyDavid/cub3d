@@ -6,11 +6,15 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:04:13 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/13 16:04:02 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:34:21 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "mlx.h"
+#include "keycode.h"
+#include "stdlib.h"
+#include <stdio.h>
 
 bool	terminate_session(t_cub3D_data *data)
 {

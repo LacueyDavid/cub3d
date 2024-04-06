@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   libft_and_utils.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 13:00:22 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/18 13:42:17 by dlacuey          ###   ########.fr       */
+/*   Created: 2024/03/15 10:52:33 by dlacuey           #+#    #+#             */
+/*   Updated: 2024/04/05 11:57:30 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef LIBFT_AND_UTILS_H
+# define LIBFT_AND_UTILS_H
 
-void	error_wrong_extention(void)
-{
-	printf("error: wrong file extention, expected : [filename].cub\n");
-}
+# include <aio.h>
+# include <stdbool.h>
 
-void	error_map_not_found(void)
+typedef struct s_color
 {
-	printf("error: map file does not exist.\n");
-}
+	int	r;
+	int	g;
+	int	b;
+}				t_color_rgb;
 
-void	error_parsing(void)
-{
-	printf("error: invalid map\n");
-}
+void	ft_bzero(void *s, size_t n);
+bool	is_whitespace(char c);
+int		get_number(char *str);
+char	*ft_strdup(char *str);
+int		rgb_to_int(t_color_rgb color_rgb);
+char	**ft_realloc(char **file, char *line);
+void	free_file(char **file);
 
-void	error_usage(void)
-{
-	printf("usage: ./cub [filepath]\n");
-}
-
-void	error_mlx(void)
-{
-	printf("error: mlx function failure\n");
-}
+#endif

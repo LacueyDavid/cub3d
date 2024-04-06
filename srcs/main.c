@@ -6,11 +6,15 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/14 15:35:54 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:31:25 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "cub3d.h"
+#include "errors.h"
 
 int	main(int argc, char **argv)
 {
@@ -21,9 +25,10 @@ int	main(int argc, char **argv)
 	if (!parsing_map(argv[1], &data.map_data))
 		return (EXIT_FAILURE);
 	if (!create_session(&data.window, &data.img_data))
-		return (error_mlx(), EXIT_FAILURE); // Don't forget to clear/free the data
+		return (error_mlx(), EXIT_FAILURE);
 	create_player(&data.player, &data.map_data);
 	cub3d(&data);
+	mouse_hook(&data);
 	key_board_hooks(&data);
 	terminate_session(&data);
 	mlx_loop(data.window.mlx);

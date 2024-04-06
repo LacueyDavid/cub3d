@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 13:00:22 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/18 13:42:17 by dlacuey          ###   ########.fr       */
+/*   Created: 2024/03/12 16:24:50 by dlacuey           #+#    #+#             */
+/*   Updated: 2024/03/18 13:59:34 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "cub3d_useful_values.h"
+#include "image_data.h"
 
-void	error_wrong_extention(void)
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color)
 {
-	printf("error: wrong file extention, expected : [filename].cub\n");
-}
+	char	*dst;
 
-void	error_map_not_found(void)
-{
-	printf("error: map file does not exist.\n");
-}
-
-void	error_parsing(void)
-{
-	printf("error: invalid map\n");
-}
-
-void	error_usage(void)
-{
-	printf("usage: ./cub [filepath]\n");
-}
-
-void	error_mlx(void)
-{
-	printf("error: mlx function failure\n");
+	if (x > WIDTH || y > HEIGHT || x < 0 || y < 0)
+		return ;
+	dst = data->address + (y * data->line_length
+			+ x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
