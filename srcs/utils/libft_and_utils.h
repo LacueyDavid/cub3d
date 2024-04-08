@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:52:33 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 18:14:24 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 20:10:01 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_bzero(void *s, size_t n);
 bool	is_whitespace(char c);
 int		get_number(char *str);
 char	*ft_strdup(char *str);
-int		ft_strlen(const char *s);
+int		ft_strlen(char *s);
+int		ft_strncmp(const char *s1, const char *s2, int n);
 int		rgb_to_int(t_color_rgb color_rgb);
 char	**ft_realloc(char **file, char *line);
 void	free_file(char **file);

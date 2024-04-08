@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/08 18:14:00 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/04/08 20:10:26 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ OBJS =													\
 				get_map.o								\
 				get_map_utils.o							\
 				check_map.o								\
+				check_textures.o						\
 				)										\
 														\
 				$(addprefix utils/,						\

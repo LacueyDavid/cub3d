@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:28:38 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:26:08 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct s_map_data
 	int			gap;
 }				t_map_data;
 
-int			ft_strlen(const char *s);
+int			ft_strlen(char *s);
 void		print_map(t_map_enum **map, int height, int width);
 bool		parsing_map(char *filepath, t_map_data *map);
 int			get_map_size(char **map);
@@ -68,6 +68,7 @@ bool		get_colors(char **file, t_map_data *data);
 bool		get_map(char **file, t_map_data *data);
 void		destroy_map(t_map_enum **map, int height);
 bool		check_map(char **map);
+bool		check_textures(t_map_data *data);
 bool		is_map_line(char *line);
 int			skip_texture_and_colors(char **file);
 
