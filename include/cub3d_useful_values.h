@@ -6,7 +6,7 @@
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:46:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 11:04:52 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 10:36:02 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # endif
 
 # ifndef ROTATE_SPEED
-#  define ROTATE_SPEED 0.050
+#  define ROTATE_SPEED 0.030
 // #  define ROTATE_SPEED 0.075
 # endif
 
@@ -36,12 +36,12 @@
 // est petite
 # ifndef SPEED
 // #  define SPEED 25
-#  define SPEED 35
+#  define SPEED 45
 # endif
 
 # ifndef SPRINT_SPEED
 // #  define SPRINT_SPEED 15
-#  define SPRINT_SPEED 15
+#  define SPRINT_SPEED 25
 # endif
 
 #endif
