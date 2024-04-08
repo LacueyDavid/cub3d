@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:46:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:21:44 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:44:40 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 # define CUB3D_USEFUL_VALUES_H
 
 # ifndef WIDTH
-// #  define WIDTH 1497
 #  define WIDTH 1200
 # endif
 
 # ifndef HEIGHT
-// #  define HEIGHT 1000
 #  define HEIGHT 800
+# endif
+
+# ifndef MAX_RES
+#  define MAX_RES 256
 # endif
 
 # ifndef FOV

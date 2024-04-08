@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:32:54 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:38:43 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:31:30 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "player.h"
 #include <stdlib.h>
 
-int	ft_strlen(const char *s)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (str[i])
 		i++;
 	return (i);
 }

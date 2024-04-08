@@ -6,13 +6,25 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:44:38 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:50:18 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "keycode.h"
 #include "hooks.h"
+#include "mlx.h"
+#include "cub3d_useful_values.h"
+
+void	init_mouse(t_cub3D_data *data)
+{
+	data->mouse.prev_x = -1;
+	data->mouse.prev_y = -1;
+	data->mouse.mouse_reset = false;
+	data->mouse.accumulated_delta_x = 0.0;
+	mlx_mouse_move(data->window.mlx, data->window.address, WIDTH / 2, HEIGHT / 2);
+	mlx_mouse_hide(data->window.mlx, data->window.address);
+}
 
 void	init_keys(t_keys *keys)
 {

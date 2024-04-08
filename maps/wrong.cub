@@ -1,13 +1,14 @@
-NO ./textures/north_texture
-SO ./textures/south_texture
-WE ./textures/west_texture
-EA ./textures/east_texture
-F 220,100,0
+NO ./textures/wall_brick.xpm
+SO ./textures/wall_brick.xpm
+WE ./textures/wall_brick.xpm
+EA ./textures/wall_brick.xpm
+
+F 100,100,100
 C 225,30,0
 
 1111111111
 1000000001
 1000000001
-10000N000
+10000N0001
 1000000001
 1111111111

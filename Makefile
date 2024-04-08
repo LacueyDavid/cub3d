@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/06 13:30:44 by jugingas         ###   ########.fr        #
+#    Updated: 2024/04/08 19:50:43 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LDFLAGS = -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
 
 CPPFLAGS =												\
 				-I include/								\
-				-I srcs/get_next_line/					\
+				-I srcs/gnl/							\
 				-I srcs/cub3d/minimap/					\
 				-I srcs/errors/							\
 				-I srcs/create_player/					\
@@ -37,7 +37,7 @@ OBJS =													\
 				main.o									\
 														\
 														\
-				$(addprefix get_next_line/,				\
+				$(addprefix gnl/,						\
 				get_next_line.o							\
 				get_next_line_utils.o					\
 				)										\
@@ -96,6 +96,7 @@ OBJS =													\
 				get_map.o								\
 				get_map_utils.o							\
 				check_map.o								\
+				check_textures.o						\
 				)										\
 														\
 				$(addprefix utils/,						\
