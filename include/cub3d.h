@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 13:20:02 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:46:05 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 
 # include <stdbool.h>
 # include "image_data.h"
+# include "hooks.h"
 # include "parser.h"
 # include "player.h"
-
-# ifndef MAX_RES
-#  define MAX_RES 256
-# endif 
 
 typedef struct s_keys
 {
@@ -43,6 +40,7 @@ typedef struct s_cub3D_data
 	t_img_data	img_data;
 	t_player	player;
 	t_keys		key;
+	t_mouse		mouse;
 }	t_cub3D_data;
 
 // main programe

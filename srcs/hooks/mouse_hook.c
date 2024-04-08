@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 12:17:55 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 19:58:43 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "hooks.h"
 #include "mlx.h"
 #include <math.h>
+#include <stdbool.h>
 #include <X11/Xlib.h>
 #include <stdio.h>
 
@@ -24,68 +25,68 @@ void	do_alt_key(t_cub3D_data *data)
 	if (data->window.m_integ)
 	{
 		mlx_mouse_show(data->window.mlx, data->window.address);
-		data->window.m_integ = 0;
+		data->window.m_integ = false;
 	}
 	else
 	{
 		mlx_mouse_hide(data->window.mlx, data->window.address);
-		data->window.m_integ = 1;
+		data->window.m_integ = true;
 	}
 }
 
-bool	reset_mouse_position(t_cub3D_data *data, int c_x, int c_y, int *prev)
+bool	reset_mouse_position(t_cub3D_data *data, int mouse_x, int mouse_y, t_mouse *mouse)
 {
-	int	x;
-	int	y;
+	int	center_x;
+	int	center_y;
 
-	x = WIDTH / 2;
-	y = HEIGHT / 2;
+	center_x = WIDTH / 2;
+	center_y = HEIGHT / 2;
 	if (!data->window.m_integ)
 		return (false);
-	if (c_x >= WIDTH - 300 || c_x <= 300
-		|| c_y >= HEIGHT - 200 || c_y <= 200)
+	if (mouse_x >= WIDTH - 300 || mouse_x <= 300
+		|| mouse_y >= HEIGHT - 200 || mouse_y <= 200)
 	{
-		prev[0] = x;
-		prev[1] = y;
-		mlx_mouse_move(data->window.mlx, data->window.address, x, y);
+		mouse->prev_x = center_x;
+		mouse->prev_y = center_y;
+		mlx_mouse_move(data->window.mlx, data->window.address, center_x, center_y);
 		return (true);
 	}
 	return (false);
 }
 
-#include <stdbool.h>
+static void	get_previous_positions(int x, int y, t_mouse *mouse)
+{
+	if (mouse->mouse_reset == false)
+	{
+		mouse->prev_x = x;
+		mouse->prev_y = y;
+	}
+}
+
 int	mouse_handler(int x, int y, t_cub3D_data *data)
 {
-	double			delta_x;
-	static int		prev_pos[2] = {-1, -1};
-	static double	accumulated_delta_x = 0.0;
-	static bool		check = false;
-	double			rotation_speed;
+	t_mouse	*mouse;
 
-	check = false;
-	if (prev_pos[0] != -1 && prev_pos[1] != -1 && data->window.m_integ)
+	mouse = &data->mouse;
+	mouse->mouse_reset = false;
+	if (mouse->prev_x != -1 && mouse->prev_y != -1 && data->window.m_integ)
 	{
-		check = reset_mouse_position(data, x, y, prev_pos);
-		if (check == false)
-			delta_x = x - prev_pos[0];
+		mouse->mouse_reset = reset_mouse_position(data, x, y, mouse);
+		if (mouse->mouse_reset == false)
+			mouse->delta_x = x - mouse->prev_x;
 		else
-			delta_x = 0;
-		accumulated_delta_x += fabs(delta_x);
-		rotation_speed = BASE + (accumulated_delta_x / MAX) * SCALE;
-		data->player.angle -= delta_x * rotation_speed;
+			mouse->delta_x = 0;
+		mouse->accumulated_delta_x += fabs(mouse->delta_x);
+		mouse->rotation_speed = BASE + (mouse->accumulated_delta_x / MAX) * SCALE;
+		data->player.angle -= mouse->delta_x * mouse->rotation_speed;
 		while (data->player.angle >= 2 * M_PI)
 			data->player.angle -= 2 * M_PI;
 		while (data->player.angle < 0)
 			data->player.angle += 2 * M_PI;
 		data->player.delta_x = cos(data->player.angle);
 		data->player.delta_y = -sin(data->player.angle);
-		ensure_player_is_in_map(data);
 	}
-	if (check == false)
-	{
-		prev_pos[0] = x;
-		prev_pos[1] = y;
-	}
+	get_previous_positions(x, y, mouse);
 	return (0);
 }
 
