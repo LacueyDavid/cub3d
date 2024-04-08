@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/07 16:20:37 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:07:47 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ int	main(int argc, char **argv)
 	take_img_path(&data.map_data);
 	create_player(&data.player, &data.map_data);
 	init_keys(&data.key);
+	mlx_mouse_hide(data.window.mlx, data.window.address);
 	cub3d(&data);
-	//mouse_hook(&data); Uncomment this line to enable mouse hook (laggy on mac and WSL)       
 	key_board_hooks(&data);
 	mlx_loop_hook(data.window.mlx, cub3d, &data);
 	mlx_loop(data.window.mlx);

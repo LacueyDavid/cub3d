@@ -6,15 +6,15 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:31:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:53:11 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:09:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HOOKS_H
 # define HOOKS_H
 
-# define BASE 0.015
-# define MAX 100.0
+# define BASE 0.0005
+# define MAX 1000.0
 # define SCALE 0.0001
 
 typedef struct s_handle_walls
