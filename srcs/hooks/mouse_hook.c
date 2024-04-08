@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 20:12:17 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:15:40 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	do_alt_key(t_cub3D_data *data)
 	if (data->window.mouse_integ)
 	{
 		mlx_mouse_show(data->window.mlx, data->window.address);
-		data->window.m_integ = false;
+		data->window.mouse_integ = false;
 	}
 	else
 	{
 		mlx_mouse_hide(data->window.mlx, data->window.address);
-		data->window.m_integ = true;
+		data->window.mouse_integ = true;
 	}
 }
 
@@ -39,7 +39,7 @@ bool	reset_mouse_position(t_cub3D_data *data, int mouse_x, int mouse_y, t_mouse 
 
 	center_x = WIDTH / 2;
 	center_y = HEIGHT / 2;
-	if (!data->window.m_integ)
+	if (!data->window.mouse_integ)
 		return (false);
 	if (mouse_x >= WIDTH - 300 || mouse_x <= 300
 		|| mouse_y >= HEIGHT - 200 || mouse_y <= 200)
@@ -67,7 +67,7 @@ int	mouse_handler(int x, int y, t_cub3D_data *data)
 
 	mouse = &data->mouse;
 	mouse->mouse_reset = false;
-	if (mouse->prev_x != -1 && mouse->prev_y != -1 && data->window.m_integ)
+	if (mouse->prev_x != -1 && mouse->prev_y != -1 && data->window.mouse_integ)
 	{
 		mouse->mouse_reset = reset_mouse_position(data, x, y, mouse);
 		if (mouse->mouse_reset == false)
