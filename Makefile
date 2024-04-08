@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/08 19:50:43 by jugingas         ###   ########.fr        #
+#    Updated: 2024/04/08 20:12:57 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,8 @@ OBJS =													\
 														\
 				$(addprefix utils/,						\
 				utils.o									\
-				utils2.o								\
+				color_utils.o							\
+				is_lower.o								\
 				libft.o									\
 				)										\
 				)										\

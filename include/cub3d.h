@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 19:46:05 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:11:40 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include "hooks.h"
 # include "parser.h"
 # include "player.h"
+
+# ifndef MAX_RES
+#  define MAX_RES 256
+# endif
 
 typedef struct s_keys
 {

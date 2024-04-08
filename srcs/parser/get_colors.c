@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:26:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 14:04:20 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:12:34 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,6 @@
 #include <stdbool.h>
 #include "libft_and_utils.h"
 #include "parser.h"
-
-bool	check_color(char *line)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (line[i])
-	{
-		if (!is_whitespace(line[i])
-			&& (line[i] > '9' || line[i] < '0') && line[i] != ',')
-			return (false);
-		if (line[i] == ',')
-			count++;
-		i++;
-	}
-	if (count != 2)
-		return (false);
-	return (true);
-}
-
 
 bool	get_ceiling_values(char *line, t_map_data *data)
 {
@@ -59,8 +37,7 @@ bool	get_ceiling_values(char *line, t_map_data *data)
 	i++;
 	if (line[i] && line[i] != '\n')
 		data->ceiling_color.b = get_number(&line[i]);
-	if (data->ceiling_color.r >= 0 && data->ceiling_color.r <= 255 && data->ceiling_color.g >= 0
-		&& data->ceiling_color.g <= 255 && data->ceiling_color.b >= 0 && data->ceiling_color.b <= 255)
+	if (is_an_rgb_color(data->ceiling_color))
 		return (true);
 	return (false);
 }
@@ -87,8 +64,7 @@ bool	get_floor_values(char *line, t_map_data *data)
 	i++;
 	if (line[i] && line[i] != '\n')
 		data->floor_color.b = get_number(&line[i]);
-	if (data->floor_color.r >= 0 && data->floor_color.r <= 255 && data->floor_color.g >= 0
-		&& data->floor_color.g <= 255 && data->floor_color.b >= 0 && data->floor_color.b <= 255)
+	if (is_an_rgb_color(data->floor_color))
 		return (true);
 	return (false);
 }

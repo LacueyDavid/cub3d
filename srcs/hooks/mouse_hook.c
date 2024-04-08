@@ -6,23 +6,21 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 19:58:43 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:12:17 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "cub3d_includes.h"
 #include "cub3d_useful_values.h"
 #include "hooks.h"
 #include "mlx.h"
 #include <math.h>
 #include <stdbool.h>
 #include <X11/Xlib.h>
-#include <stdio.h>
 
 void	do_alt_key(t_cub3D_data *data)
 {
-	if (data->window.m_integ)
+	if (data->window.mouse_integ)
 	{
 		mlx_mouse_show(data->window.mlx, data->window.address);
 		data->window.m_integ = false;
