@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:28:19 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/07 15:56:49 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ bool	parsing_map(char *filepath, t_map_data *map_data)
 	(free_file(file));
 	set_minimap_colors(map_data);
 	set_gap(map_data);
+	map_data->biggest_side = which_is_bigger(map_data->width, map_data->height);
+	map_data->smallest_side = which_is_lower(map_data->width, map_data->height);
 	return (true);
 }

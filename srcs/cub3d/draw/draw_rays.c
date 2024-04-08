@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:07:13 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 08:03:48 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:59:58 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	set_ray(t_ray *ray, t_cub3D_data *data)
 	if (ray->angle > 2 * M_PI)
 		ray->angle -= 2 * M_PI;
 }
+
+#include <stdio.h>
 
 void	draw_rays(t_cub3D_data *data)
 {

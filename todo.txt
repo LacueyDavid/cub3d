@@ -1,0 +1,4 @@
+Fix the 153 leaks
+fix the norm
+Check potential error in bad maps parsing
+Check if mouse works on 42's dells
