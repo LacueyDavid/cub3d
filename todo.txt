@@ -2,4 +2,4 @@ tester des images hautes resolutions.
 
 tester des path qui marchent pas.
 
-
+refacto le code.
