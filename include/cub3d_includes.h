@@ -1,34 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arithmetic.h                                       :+:      :+:    :+:   */
+/*   cub3d_includes.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 13:32:06 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:32:12 by jugingas         ###   ########.fr       */
+/*   Created: 2024/03/15 11:00:59 by dlacuey           #+#    #+#             */
+/*   Updated: 2024/03/18 12:56:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARITHMETIC_H
-# define ARITHMETIC_H
+#ifndef CUB3D_INCLUDES_H
+# define CUB3D_INCLUDES_H
 
-typedef struct s_point_int
-{
-	int		x;
-	int		y;
-}				t_point_int;
-
-typedef struct s_point
-{
-	float		x;
-	float		y;
-}				t_point;
-
-typedef struct s_line
-{
-	t_point_int	p1;
-	t_point_int	p2;
-}				t_line;
 
 #endif

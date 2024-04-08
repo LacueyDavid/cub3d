@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:27:01 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/18 13:51:51 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:27:31 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ bool	get_north(char **file, t_map_data *data)
 			while (file[i][n] && is_whitespace(file[i][n]))
 				n++;
 			data->north_img = ft_strdup(file[i] + n);
+			if (!data->north_img)
+				return (printf("error: memory allocation failed.\n"), false);
 			data->north_img[ft_strlen(data->north_img) - 1] = '\0';
 			return (true);
 		}
@@ -58,6 +60,8 @@ bool	get_south(char **file, t_map_data *data)
 			while (file[i][n] && is_whitespace(file[i][n]))
 				n++;
 			data->south_img = ft_strdup(file[i] + n);
+			if (!data->south_img)
+				return (printf("error: memory allocation failed.\n"), false);
 			data->south_img[ft_strlen(data->south_img) - 1] = '\0';
 			return (true);
 		}
@@ -82,6 +86,8 @@ bool	get_east(char **file, t_map_data *data)
 			while (file[i][n] && is_whitespace(file[i][n]))
 				n++;
 			data->east_img = ft_strdup(file[i] + n);
+			if (!data->east_img)
+				return (printf("error: memory allocation failed.\n"), false);
 			data->east_img[ft_strlen(data->east_img) - 1] = '\0';
 			return (true);
 		}
@@ -106,6 +112,8 @@ bool	get_west(char **file, t_map_data *data)
 			while (file[i][n] && is_whitespace(file[i][n]))
 				n++;
 			data->west_img = ft_strdup(file[i] + n);
+			if (!data->west_img)
+				return (printf("error: memory allocation failed.\n"), false);
 			data->west_img[ft_strlen(data->west_img) - 1] = '\0';
 			return (true);
 		}

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   do_key.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 15:10:56 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:44:38 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "keycode.h"
+#include "hooks.h"
 
 void	init_keys(t_keys *keys)
 {
@@ -28,6 +29,8 @@ void	init_keys(t_keys *keys)
 
 void	do_key_press(t_cub3D_data *data, int keycode)
 {
+	if (keycode == ALT_KEY_CODE)
+		do_alt_key(data);
 	if (keycode == W_KEY_CODE)
 		data->key.w = true;
 	if (keycode == S_KEY_CODE)

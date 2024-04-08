@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:57:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/18 13:44:36 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/07 15:52:56 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ bool	create_session(t_window *window, t_img_data *img_data)
 			&img_data->endian);
 	if (!(img_data->address))
 		return (false);
+	window->m_integ = 1;
 	return (true);
 }

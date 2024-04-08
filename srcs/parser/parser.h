@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 07:47:39 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:28:38 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_map_data
 	int			gap;
 }				t_map_data;
 
+int			ft_strlen(const char *s);
 void		print_map(t_map_enum **map, int height, int width);
 bool		parsing_map(char *filepath, t_map_data *map);
 int			get_map_size(char **map);

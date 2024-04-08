@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:43:15 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/29 07:50:32 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:22:04 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int		cub3d(t_cub3D_data *data);
 
 //// hook to moove the player
 bool	key_board_hooks(t_cub3D_data *data);
+bool	mouse_hooks(t_cub3D_data *data);
 
 #endif

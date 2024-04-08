@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keycode.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:45:58 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/29 08:04:26 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 13:22:32 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@
 
 # ifndef D_KEY_CODE
 #  define D_KEY_CODE 100
+# endif
+
+# ifndef ALT_KEY_CODE
+#  define ALT_KEY_CODE 65513
 # endif
 
 # ifndef ARROW_LEFT_CODE

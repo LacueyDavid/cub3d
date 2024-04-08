@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 15:53:16 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 12:39:58 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 #include "cub3d.h"
 #include "errors.h"
 #include "hooks.h"
-#include <stdio.h>
 #include "parser.h"
+#include "cub3d_useful_values.h"
 
-#include <stdio.h>
 void	take_img_path(t_map_data *map_data)
 {
 	map_data->img[NORTH].path = map_data->north_img;
@@ -81,6 +80,8 @@ int	main(int argc, char **argv)
 	take_img_path(&data.map_data);
 	create_player(&data.player, &data.map_data);
 	init_keys(&data.key);
+	mlx_mouse_move(data.window.mlx, data.window.address, WIDTH / 2, HEIGHT / 2);
+	mlx_mouse_hide(data.window.mlx, data.window.address);
 	cub3d(&data);
 	key_board_hooks(&data);
 	mlx_loop_hook(data.window.mlx, cub3d, &data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rasterization.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:42:36 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 14:16:24 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 14:00:41 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "cub3d_useful_values.h"
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static t_point	define_direction(t_line line)
 {

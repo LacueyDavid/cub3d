@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_board_hooks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:13:37 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 04:39:56 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 10:50:31 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ bool	key_board_hooks(t_cub3D_data *data)
 	mlx_hook(data->window.address, 2, 1L << 0, handle_moving_press, data);
 	mlx_hook(data->window.address, 3, 1L << 1, handle_moving_release, data);
 	mlx_hook(data->window.address, 17, 0, handle_window_close, data);
+	mouse_hook(data);
 	return (true);
 }

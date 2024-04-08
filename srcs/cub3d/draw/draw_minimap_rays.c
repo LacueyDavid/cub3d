@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap_rays.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:21:41 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 01:47:02 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/06 14:00:13 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "draw.h"
+#include <stdio.h>
 
 void	draw_minimap_2d_ray(t_cub3D_data *data, t_ray *ray)
 {

@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/03/29 14:39:17 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/04/06 13:30:44 by jugingas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ OBJS =													\
 				)										\
 														\
 				$(addprefix hooks/,						\
+				mouse_hook.o							\
 				terminate_session.o						\
 				key_board_hooks.o						\
 				do_key.o								\
