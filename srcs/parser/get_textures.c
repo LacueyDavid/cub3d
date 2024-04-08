@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:27:01 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:27:31 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:18:26 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,7 @@ bool	get_textures(char **file, t_map_data *data)
 	if (fd == -1)
 		return (printf("error: west wall texture does not exist.\n"), false);
 	close(fd);
+	if (!check_textures(data))
+		return (false);
 	return (true);
 }

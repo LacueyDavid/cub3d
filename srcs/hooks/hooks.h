@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:31:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 12:45:45 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 12:09:04 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define BASE 0.0005
 # define MAX 1000.0
-# define SCALE 0.00005
+# define SCALE 0.0001
 
 typedef struct s_handle_walls
 {

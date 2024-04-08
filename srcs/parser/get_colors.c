@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:26:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:27:26 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:04:20 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ bool	get_floor_values(char *line, t_map_data *data)
 	data->floor_color.r = -1;
 	data->floor_color.g = -1;
 	data->floor_color.b = -1;
-	if (line[i] && line[i] != '\n')
+	if (line[i] && line[i] != '\n' && line[i + 1] != ',')
 		data->floor_color.r = get_number(&line[i]);
 	while (line[i] && line[i] != ',' && (is_whitespace(line[i])
 			|| (line[i] >= '0' && line[i] <= '9')))
