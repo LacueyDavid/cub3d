@@ -6,30 +6,28 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 12:44:29 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 19:24:27 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "cub3d_includes.h"
 #include "cub3d_useful_values.h"
 #include "hooks.h"
 #include "mlx.h"
 #include <math.h>
 #include <X11/Xlib.h>
-#include <stdio.h>
 
 void	do_alt_key(t_cub3D_data *data)
 {
-	if (data->window.m_integ)
+	if (data->window.mouse_integ)
 	{
 		mlx_mouse_show(data->window.mlx, data->window.address);
-		data->window.m_integ = 0;
+		data->window.mouse_integ = 0;
 	}
 	else
 	{
 		mlx_mouse_hide(data->window.mlx, data->window.address);
-		data->window.m_integ = 1;
+		data->window.mouse_integ = 1;
 	}
 }
 
@@ -40,7 +38,7 @@ bool	reset_mouse_position(t_cub3D_data *data, int c_x, int c_y, int *prev)
 
 	x = WIDTH / 2;
 	y = HEIGHT / 2;
-	if (!data->window.m_integ)
+	if (!data->window.mouse_integ)
 		return (false);
 	if (c_x >= WIDTH - 300 || c_x <= 300
 		|| c_y >= HEIGHT - 200 || c_y <= 200)
@@ -53,20 +51,22 @@ bool	reset_mouse_position(t_cub3D_data *data, int c_x, int c_y, int *prev)
 	return (false);
 }
 
-#include <stdbool.h>
 int	mouse_handler(int x, int y, t_cub3D_data *data)
 {
 	double			delta_x;
-	static int		prev_pos[2] = {-1, -1};
-	static double	accumulated_delta_x = 0.0;
-	static bool		check = false;
+	static int		prev_pos[2];
+	static double	accumulated_delta_x;
+	bool			mouse_reset;
 	double			rotation_speed;
 
-	check = false;
-	if (prev_pos[0] != -1 && prev_pos[1] != -1 && data->window.m_integ)
+	prev_pos[0] = -1;
+	prev_pos[1] = -1;
+	accumulated_delta_x = 0.0;
+	mouse_reset = false;
+	if (prev_pos[0] != -1 && prev_pos[1] != -1 && data->window.mouse_integ)
 	{
-		check = reset_mouse_position(data, x, y, prev_pos);
-		if (check == false)
+		mouse_reset = reset_mouse_position(data, x, y, prev_pos);
+		if (mouse_reset == false)
 			delta_x = x - prev_pos[0];
 		else
 			delta_x = 0;
@@ -81,7 +81,7 @@ int	mouse_handler(int x, int y, t_cub3D_data *data)
 		data->player.delta_y = -sin(data->player.angle);
 		ensure_player_is_in_map(data);
 	}
-	if (check == false)
+	if (mouse_reset == false)
 	{
 		prev_pos[0] = x;
 		prev_pos[1] = y;

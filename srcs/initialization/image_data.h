@@ -6,22 +6,22 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:33:11 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/06 13:34:38 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:22:33 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMAGE_DATA_H
 # define IMAGE_DATA_H
 
-#include <aio.h>
-#include "libft_and_utils.h"
+# include <aio.h>
+# include "libft_and_utils.h"
 # include <stdbool.h>
 
 typedef struct s_window
 {
 	void	*mlx;
 	void	*address;
-	bool	m_integ;
+	bool	mouse_integ;
 }				t_window;
 
 typedef struct s_img_data

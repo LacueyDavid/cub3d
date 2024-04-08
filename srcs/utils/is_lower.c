@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   is_lower.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:34:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 08:08:12 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 18:11:57 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,4 @@ int	which_is_lower(int a, int b)
 	if (a > b)
 		return (b);
 	return (a);
-}
-
-void	set_color(t_color_rgb *color, int r, int g, int b)
-{
-	color->r = r;
-	color->g = g;
-	color->b = b;
-}
-
-int	color_red(void)
-{
-	return (255 << 16);
 }
