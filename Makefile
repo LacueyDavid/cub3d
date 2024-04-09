@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/08 20:12:57 by jugingas         ###   ########.fr        #
+#    Updated: 2024/04/09 14:12:25 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ OBJS =													\
 				minimap.o								\
 				)										\
 				$(addprefix draw/,						\
+				choose_pixel_texture.o					\
 				my_mlx_pixel_put.o						\
 				rasterization.o							\
 				draw_rays.o								\
@@ -58,6 +59,7 @@ OBJS =													\
 				direction_looking.o						\
 				draw_help.o								\
 				set_rays.o								\
+				textured_rasterization.o				\
 				)										\
 				)										\
 														\
@@ -101,6 +103,7 @@ OBJS =													\
 														\
 				$(addprefix utils/,						\
 				utils.o									\
+				choose_direction.o						\
 				color_utils.o							\
 				is_lower.o								\
 				libft.o									\

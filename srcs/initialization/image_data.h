@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:33:11 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 18:22:33 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 13:00:44 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define IMAGE_DATA_H
 
 # include <aio.h>
-# include "libft_and_utils.h"
 # include <stdbool.h>
 
 typedef struct s_window

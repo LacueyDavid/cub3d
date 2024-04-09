@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:23:31 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:24:05 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:11:51 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,15 @@
 # include "image_data.h"
 # include "cub3d.h"
 # include "player.h"
+# include "ray.h"
 
-typedef struct ray
+typedef struct rasterization
 {
-	float	distance;
-	float	distance_v;
-	float	distance_h;
-	float	smallest_distance;
-	float	invert_tan;
-	float	tan;
-	float	angle;
-	float	angle_precision;
-	float	x;
-	float	y;
-	float	vx;
-	float	vy;
-	float	x_offset;
-	float	y_offset;
-	float	numbers;
-	int		max;
-	int		depth_of_field;
-	int		lineH;
-}			t_ray;
+	int			error;
+	int			err2;
+	t_point		diff;
+	t_point		direction;
+}				t_rasterization;
 
 void	rasterization(t_line line, t_img_data *img, int color);
 void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_cub3D_data *data);
@@ -56,5 +43,8 @@ int		is_wall(t_cub3D_data *data, int x, int y);
 float	calculate_ray_distance(t_ray *ray, t_cub3D_data *data);
 void	set_current_ray_distance(t_ray *ray, t_cub3D_data *data);
 void	draw_3d_walls(t_cub3D_data *data, t_ray *ray);
+void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_cub3D_data *data);
+void	choose_pixel_texture(t_ray *ray, t_pixel_extractor *extractor, t_cub3D_data *data);
+int		get_pixel_color(t_imgs img, int x, int y);
 
 #endif

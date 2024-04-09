@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:52:33 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 20:12:44 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:38:09 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <aio.h>
 # include <stdbool.h>
+# include "ray.h"
 
 typedef struct s_color
 {
@@ -38,5 +39,9 @@ void	set_color(t_color_rgb *color, int r, int g, int b);
 int		color_red(void);
 bool	is_an_rgb_color(t_color_rgb color);
 bool	check_color(char *line);
+bool	is_a_north_wall(t_ray *ray);
+bool	is_a_west_wall(t_ray *ray);
+bool	is_a_east_wall(t_ray *ray);
+bool	is_a_south_wall(t_ray *ray);
 
 #endif

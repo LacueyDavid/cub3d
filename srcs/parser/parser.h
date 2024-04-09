@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 13:26:08 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:01:06 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,19 @@ typedef struct s_map_data
 	t_color_rgb	minimap_wall_color;
 	int			gap;
 }				t_map_data;
+
+typedef struct s_pixel_extractor
+{
+	t_imgs	texture;
+	int		gap;
+	int		map_gap;
+	int		line_p1_y;
+	int		start_y;
+	int		position_y;
+	int		position_x;
+	int		ecart;
+	int		color;
+}				t_pixel_extractor;
 
 int			ft_strlen(char *s);
 void		print_map(t_map_enum **map, int height, int width);
