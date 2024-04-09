@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:23:31 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 14:11:51 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:59:29 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct rasterization
 }				t_rasterization;
 
 void	rasterization(t_line line, t_img_data *img, int color);
-void	textured_rasterization(t_line line, t_img_data *img, t_ray *ray, t_cub3D_data *data);
+void	textured_rasterization(t_line line, t_img_data *img,
+			t_ray *ray, t_cub3D_data *data);
 void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 bool	reset_image(t_img_data *img_data);
 void	draw_minimap(t_cub3D_data *data);

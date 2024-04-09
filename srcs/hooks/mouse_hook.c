@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 10:02:08 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:00:01 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	do_alt_key(t_cub3D_data *data)
 	}
 }
 
-bool	reset_mouse_position(t_cub3D_data *data, int mouse_x, int mouse_y, t_mouse *mouse)
+bool	reset_mouse_position(t_cub3D_data *data, int mouse_x,
+			int mouse_y, t_mouse *mouse)
 {
 	int	center_x;
 	int	center_y;
@@ -46,7 +47,8 @@ bool	reset_mouse_position(t_cub3D_data *data, int mouse_x, int mouse_y, t_mouse 
 	{
 		mouse->prev_x = center_x;
 		mouse->prev_y = center_y;
-		mlx_mouse_move(data->window.mlx, data->window.address, center_x, center_y);
+		mlx_mouse_move(data->window.mlx, data->window.address,
+			center_x, center_y);
 		return (true);
 	}
 	return (false);
@@ -75,7 +77,8 @@ int	mouse_handler(int x, int y, t_cub3D_data *data)
 		else
 			mouse->delta_x = 0;
 		mouse->accumulated_delta_x += fabs(mouse->delta_x);
-		mouse->rotation_speed = BASE + (mouse->accumulated_delta_x / MAX) * SCALE;
+		mouse->rotation_speed = BASE
+			+ (mouse->accumulated_delta_x / MAX) * SCALE;
 		data->player.angle -= mouse->delta_x * mouse->rotation_speed;
 		while (data->player.angle >= 2 * M_PI)
 			data->player.angle -= 2 * M_PI;

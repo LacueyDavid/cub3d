@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:31:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 10:23:20 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:59:48 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HOOKS_H
 
 # include "cub3d.h"
+# include "parser.h"
 
 # define BASE 0.0005
 # define MAX 1500.0
@@ -52,6 +53,7 @@ typedef struct s_mouse
 void	ensure_player_is_in_map(t_cub3D_data *data);
 void	do_key_press(t_cub3D_data *data, int keycode);
 void	do_key_release(t_cub3D_data *data, int keycode);
+void	destroy_img(t_map_data *data);
 void	reset_player(t_cub3D_data *data);
 void	do_shift_key(t_cub3D_data *data);
 void	do_alt_key(t_cub3D_data *data);

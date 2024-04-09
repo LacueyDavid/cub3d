@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:13:37 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 10:50:31 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/08 20:36:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	handle_escape_press(int keycode, t_cub3D_data *data)
 		free(data->map_data.south_img);
 		free(data->map_data.east_img);
 		free(data->map_data.west_img);
+		destroy_img(&data->map_data);
 		destroy_map(data->map_data.map, data->map_data.height);
 		exit (0);
 	}
@@ -44,6 +45,7 @@ int	handle_window_close(t_cub3D_data *data)
 	free(data->map_data.south_img);
 	free(data->map_data.east_img);
 	free(data->map_data.west_img);
+	destroy_img(&data->map_data);
 	destroy_map(data->map_data.map, data->map_data.height);
 	exit (0);
 }

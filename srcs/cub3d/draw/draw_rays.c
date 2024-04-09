@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:07:13 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 10:27:09 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 14:59:02 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_useful_values.h"
 #include "libft_and_utils.h"
 #include "draw.h"
+#include <stdio.h>
 
 void	prepare_next_ray(t_ray *ray)
 {

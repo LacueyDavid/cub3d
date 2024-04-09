@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 20:12:53 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:07:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,57 +17,37 @@
 #include "hooks.h"
 #include <stdio.h>
 #include "parser.h"
-
 #include <stdio.h>
-void	take_img_path(t_map_data *map_data)
+
+void	init_image(t_map_data *map_data, int index)
+{
+	map_data->img[index].mlx = mlx_init();
+	map_data->img[index].img = mlx_xpm_file_to_image(map_data->img[index].mlx,
+			map_data->img[index].path, &map_data->img[index].width,
+			&map_data->img[index].height);
+	map_data->img[index].data.address = mlx_get_data_addr(
+			map_data->img[index].img,
+			&map_data->img[index].data.bits_per_pixel,
+			&map_data->img[index].data.line_length,
+			&map_data->img[index].data.endian);
+	map_data->img[index].data.img = map_data->img[index].img;
+}
+
+bool	take_img_path(t_map_data *map_data)
 {
 	map_data->img[NORTH].path = map_data->north_img;
 	map_data->img[SOUTH].path = map_data->south_img;
 	map_data->img[WEST].path = map_data->west_img;
 	map_data->img[EAST].path = map_data->east_img;
-	map_data->img[NORTH].mlx = mlx_init();
-	map_data->img[SOUTH].mlx = mlx_init();
-	map_data->img[WEST].mlx = mlx_init();
-	map_data->img[EAST].mlx = mlx_init();
-	map_data->img[NORTH].img = mlx_xpm_file_to_image(map_data->img[NORTH].mlx,
-			map_data->img[NORTH].path, &map_data->img[NORTH].width,
-			&map_data->img[NORTH].height);
-	map_data->img[SOUTH].img = mlx_xpm_file_to_image(map_data->img[SOUTH].mlx,
-			map_data->img[SOUTH].path, &map_data->img[SOUTH].width,
-			&map_data->img[SOUTH].height);
-	map_data->img[WEST].img = mlx_xpm_file_to_image(map_data->img[WEST].mlx,
-			map_data->img[WEST].path, &map_data->img[WEST].width,
-			&map_data->img[WEST].height);
-	map_data->img[EAST].img = mlx_xpm_file_to_image(map_data->img[EAST].mlx,
-			map_data->img[EAST].path, &map_data->img[EAST].width,
-			&map_data->img[EAST].height);
+	init_image(map_data, NORTH);
+	init_image(map_data, SOUTH);
+	init_image(map_data, WEST);
+	init_image(map_data, EAST);
 	if (!map_data->img[NORTH].img || !map_data->img[SOUTH].img
 		|| !map_data->img[WEST].img || !map_data->img[EAST].img)
-	{
-		//PROTEGER ICI;
-	}
-	map_data->img[NORTH].data.address = mlx_get_data_addr(map_data->img[NORTH].img,
-			&map_data->img[NORTH].data.bits_per_pixel,
-			&map_data->img[NORTH].data.line_length,
-			&map_data->img[NORTH].data.endian);
-	map_data->img[SOUTH].data.address = mlx_get_data_addr(map_data->img[SOUTH].img,
-			&map_data->img[SOUTH].data.bits_per_pixel,
-			&map_data->img[SOUTH].data.line_length,
-			&map_data->img[SOUTH].data.endian);
-	map_data->img[WEST].data.address = mlx_get_data_addr(map_data->img[WEST].img,
-			&map_data->img[WEST].data.bits_per_pixel,
-			&map_data->img[WEST].data.line_length,
-			&map_data->img[WEST].data.endian);
-	map_data->img[EAST].data.address = mlx_get_data_addr(map_data->img[EAST].img,
-			&map_data->img[EAST].data.bits_per_pixel,
-			&map_data->img[EAST].data.line_length,
-			&map_data->img[EAST].data.endian);
-	map_data->img[NORTH].data.img = map_data->img[NORTH].img;
-	map_data->img[SOUTH].data.img = map_data->img[SOUTH].img;
-	map_data->img[WEST].data.img = map_data->img[WEST].img;
-	map_data->img[EAST].data.img = map_data->img[EAST].img;
+		return (printf("error: mlx xpm conversion failed.\n"), false);
+	return (true);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -79,7 +59,8 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	if (!create_session(&data.window, &data.img_data))
 		return (error_mlx(), EXIT_FAILURE);
-	take_img_path(&data.map_data);
+	if (!take_img_path(&data.map_data))
+		return (EXIT_FAILURE);
 	create_player(&data.player, &data.map_data);
 	init_mouse(&data);
 	init_keys(&data.key);
