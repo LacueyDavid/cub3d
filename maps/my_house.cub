@@ -1,0 +1,20 @@
+NO ./textures/wall_brick.xpm
+SO ./textures/wall_brick.xpm
+WE ./textures/wall_brick.xpm
+EA ./textures/wall_brick.xpm
+F 128,128,128
+C 85,91,97
+
+         11111
+         10001
+11111111110001
+10100000010001
+10000000011011
+10100000010001
+11100000000001
+11111000010001
+   10000010001
+   11001010001
+   11111011111
+       1S1
+       111

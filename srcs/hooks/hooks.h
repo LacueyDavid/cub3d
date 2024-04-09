@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 13:31:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 20:11:50 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:23:20 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "cub3d.h"
 
 # define BASE 0.0005
-# define MAX 1000.0
-# define SCALE 0.0001
+# define MAX 1500.0
+# define SCALE 0.00005
 
 typedef struct s_cub3D_data	t_cub3D_data;
 

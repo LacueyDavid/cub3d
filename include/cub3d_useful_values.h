@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:46:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 20:11:36 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:21:55 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # endif
 
 # ifndef ROTATE_SPEED
-#  define ROTATE_SPEED 0.050
+#  define ROTATE_SPEED 0.025
 # endif
 
 // speed etant une fraction de la taille d'un bloc,

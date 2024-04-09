@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:34:06 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 20:12:42 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:02:26 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,6 @@ int	which_is_lower(int a, int b)
 	if (a > b)
 		return (b);
 	return (a);
-}
-
-void	set_color(t_color_rgb *color, int r, int g, int b)
-{
-	color->r = r;
-	color->g = g;
-	color->b = b;
-}
-
-int	color_red(void)
-{
-	return (255 << 16);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, int n)
