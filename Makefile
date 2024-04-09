@@ -6,9 +6,11 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/09 15:52:30 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/04/09 16:30:39 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = cub3D
 
 CC = gcc
 
@@ -37,7 +39,6 @@ OBJS =													\
 														\
 				$(addprefix srcs/,						\
 				main.o									\
-														\
 														\
 				$(addprefix gnl/,						\
 				get_next_line.o							\
@@ -112,8 +113,6 @@ OBJS =													\
 				)										\
 				)										\
 														\
-
-NAME = cub3D
 
 all: $(NAME)
 
