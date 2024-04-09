@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:18:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 13:55:20 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/08 20:39:53 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ bool	check_res(char *path, char *name)
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
 	while (ft_strncmp(line, "\"", 1))
+	{
+		free(line);
 		line = get_next_line(fd);
+	}
 	resolution = get_number(line + 1);
 	if (resolution < 1)
 		return (printf("error: %s texture resolution is too small\n", name),

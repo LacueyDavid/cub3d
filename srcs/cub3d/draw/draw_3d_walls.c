@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_3d_walls.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:16:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 14:48:48 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 10:09:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #include <math.h>
 #include <mlx.h>
 
-static void	protect_line_height(int *lineH, int max)
+static void	protect_line_height(int *line_h, int max)
 {
-	if (*lineH < 0)
-		*lineH = 0;
-	if (*lineH > max)
-		*lineH = max;
+	if (*line_h < 0)
+		*line_h = 0;
+	if (*line_h > max)
+		*line_h = max;
 }
 
 static float	fix_fisheye(t_cub3D_data *data, t_ray *ray)
@@ -56,7 +56,9 @@ void	set_ceiling(t_cub3D_data *data, t_ray *ray)
 	i = 0;
 	while (i < HEIGHT / 2)
 	{
-		my_mlx_pixel_put(&data->img_data, ray->numbers + (WIDTH / 2) - (ray->max / 2), i, rgb_to_int(data->map_data.ceiling_color));
+		my_mlx_pixel_put(&data->img_data, ray->numbers
+			+ (WIDTH / 2) - (ray->max / 2),
+			i, rgb_to_int(data->map_data.ceiling_color));
 		i++;
 	}
 }
@@ -68,7 +70,9 @@ void	set_floor(t_cub3D_data *data, t_ray *ray)
 	i = HEIGHT / 2;
 	while (i < HEIGHT)
 	{
-		my_mlx_pixel_put(&data->img_data, ray->numbers + (WIDTH / 2) - (ray->max / 2), i, rgb_to_int(data->map_data.floor_color));
+		my_mlx_pixel_put(&data->img_data, ray->numbers
+			+ (WIDTH / 2) - (ray->max / 2),
+			i, rgb_to_int(data->map_data.floor_color));
 		i++;
 	}
 }
@@ -81,7 +85,7 @@ void	draw_3d_walls(t_cub3D_data *data, t_ray *ray)
 
 	ray->distance = fix_fisheye(data, ray);
 	line_height = (ray->max * (data->map_data.gap)) / ray->distance;
-	ray->lineH = line_height;
+	ray->line_h = line_height;
 	protect_line_height(&line_height, ray->max);
 	line_offset = ray->max / 2 - line_height / 2;
 	line.p1.x = ray->numbers + (WIDTH / 2) - (ray->max / 2);

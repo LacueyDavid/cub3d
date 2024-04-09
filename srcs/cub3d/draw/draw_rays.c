@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:07:13 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:59:58 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:11:24 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_useful_values.h"
 #include "libft_and_utils.h"
 #include "draw.h"
+#include <stdio.h>
 
 void	prepare_next_ray(t_ray *ray)
 {
@@ -48,8 +49,6 @@ void	set_ray(t_ray *ray, t_cub3D_data *data)
 	if (ray->angle > 2 * M_PI)
 		ray->angle -= 2 * M_PI;
 }
-
-#include <stdio.h>
 
 void	draw_rays(t_cub3D_data *data)
 {

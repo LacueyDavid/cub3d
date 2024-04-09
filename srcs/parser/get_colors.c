@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:26:52 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 20:12:34 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:11:17 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ bool	get_ceiling(char **file, t_map_data *data)
 		if (file[i][n] == 'C' && file[i][n + 1] == ' ')
 		{
 			if (!check_color(file[i] + n + 1))
-				return (printf("error: invalid ceiling color values.\n"), false);
+				return (printf("error: invalid ceiling color values.\n"),
+					false);
 			n += 1;
 			while (file[i][n] && is_whitespace(file[i][n]))
 				n++;

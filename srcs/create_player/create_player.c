@@ -6,12 +6,13 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:12:49 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:23:10 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:11:35 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_useful_values.h"
+#include <stdio.h>
 
 void	set_player_size(t_player *player, t_map_data *map_data)
 {
@@ -25,7 +26,6 @@ void	set_player_color(t_player *player)
 	player->color.b = 0;
 }
 
-#include <stdio.h>
 bool	create_player(t_player *player, t_map_data *map_data)
 {
 	player->speed = (float)map_data->gap / SPEED;
