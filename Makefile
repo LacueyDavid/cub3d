@@ -6,7 +6,7 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/09 15:00:08 by jugingas         ###   ########.fr        #
+#    Updated: 2024/04/09 15:52:30 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ CPPFLAGS =												\
 				-I srcs/hooks/							\
 				-I mlx/									\
 				-I srcs/cub3d/draw/						\
+														\
+				-MMD -MP -MF $(@:.o=.d)					\
 														\
 
 OBJS =													\
@@ -125,5 +127,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+-include $(OBJS:.o=.d)
 
 .PHONY: all clean fclean re check
