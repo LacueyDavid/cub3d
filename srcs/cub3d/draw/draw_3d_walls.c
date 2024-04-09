@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:16:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 14:58:59 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	protect_line_height(int *line_h, int max)
 		*line_h = max;
 }
 
-static float	fix_fisheye(t_cub3D_data *data, t_ray *ray)
+static float	fix_fisheye(t_cub3d_data *data, t_ray *ray)
 {
 	float	correct_angle;
 	float	distance;
@@ -49,7 +49,7 @@ static float	fix_fisheye(t_cub3D_data *data, t_ray *ray)
 // }
 //
 
-void	set_ceiling(t_cub3D_data *data, t_ray *ray)
+void	set_ceiling(t_cub3d_data *data, t_ray *ray)
 {
 	int	i;
 
@@ -63,7 +63,7 @@ void	set_ceiling(t_cub3D_data *data, t_ray *ray)
 	}
 }
 
-void	set_floor(t_cub3D_data *data, t_ray *ray)
+void	set_floor(t_cub3d_data *data, t_ray *ray)
 {
 	int	i;
 
@@ -77,7 +77,7 @@ void	set_floor(t_cub3D_data *data, t_ray *ray)
 	}
 }
 
-void	draw_3d_walls(t_cub3D_data *data, t_ray *ray)
+void	draw_3d_walls(t_cub3d_data *data, t_ray *ray)
 {
 	int				line_height;
 	t_line			line;

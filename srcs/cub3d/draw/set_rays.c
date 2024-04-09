@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   set_rays.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:36:40 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/05 08:02:51 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include <math.h>
 
-static void	fire_ray(t_cub3D_data *data, t_ray *ray, float *distance)
+static void	fire_ray(t_cub3d_data *data, t_ray *ray, float *distance)
 {
 	int		map_x;
 	int		map_y;
@@ -38,7 +38,7 @@ static void	fire_ray(t_cub3D_data *data, t_ray *ray, float *distance)
 	}
 }
 
-static void	set_ray_horizontal_distance(t_cub3D_data *data, t_ray *ray,
+static void	set_ray_horizontal_distance(t_cub3d_data *data, t_ray *ray,
 										int biggest_side)
 {
 	ray->invert_tan = 1.0 / tan(ray->angle);
@@ -52,7 +52,7 @@ static void	set_ray_horizontal_distance(t_cub3D_data *data, t_ray *ray,
 	fire_ray(data, ray, &ray->distance_h);
 }
 
-static void	set_ray_vertical_distance(t_cub3D_data *data, t_ray *ray,
+static void	set_ray_vertical_distance(t_cub3d_data *data, t_ray *ray,
 										int biggest_side)
 {
 	ray->tan = tan(ray->angle);
@@ -84,7 +84,7 @@ static void	choose_smallest_distance(t_ray *ray)
 	}
 }
 
-void	set_current_ray_distance(t_ray *ray, t_cub3D_data *data)
+void	set_current_ray_distance(t_ray *ray, t_cub3d_data *data)
 {
 	set_ray_vertical_distance(data, ray, data->map_data.biggest_side);
 	set_ray_horizontal_distance(data, ray, data->map_data.biggest_side);

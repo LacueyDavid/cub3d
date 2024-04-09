@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:21:41 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 14:00:13 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "draw.h"
 #include <stdio.h>
 
-void	draw_minimap_2d_ray(t_cub3D_data *data, t_ray *ray)
+void	draw_minimap_2d_ray(t_cub3d_data *data, t_ray *ray)
 {
 	t_line		line;
 	t_color_rgb	color;

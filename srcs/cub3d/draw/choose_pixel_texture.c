@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   choose_pixel_texture.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:09:42 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 14:11:23 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	take_pixel_texture(t_imgs texture,
 }
 
 void	choose_pixel_texture(t_ray *ray,
-		t_pixel_extractor *extractor, t_cub3D_data *data)
+		t_pixel_extractor *extractor, t_cub3d_data *data)
 {
 	t_imgs	texture_north;
 	t_imgs	texture_south;

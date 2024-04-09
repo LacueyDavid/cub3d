@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:00:22 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/18 13:42:17 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:08:30 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void	error_usage(void)
 
 void	error_mlx(void)
 {
-	printf("error: mlx function failure\n");
+	printf("error: mlx init failed.\n");
 }

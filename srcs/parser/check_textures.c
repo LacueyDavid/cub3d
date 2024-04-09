@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:18:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 11:44:59 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:01:12 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool	check_res(char *name, int fd)
 	}
 	while (line)
 	{
-		if (!ft_strncmp(line, "\"",1) && !resolution)
+		if (!ft_strncmp(line, "\"", 1) && !resolution)
 			resolution = get_number(line + 1);
 		free(line);
 		line = get_next_line(fd);

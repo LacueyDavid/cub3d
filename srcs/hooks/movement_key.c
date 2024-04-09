@@ -6,14 +6,14 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 14:18:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:49:29 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "hooks.h"
 
-static void	do_w_key(t_cub3D_data *d, t_handle_walls *hw)
+static void	do_w_key(t_cub3d_data *d, t_handle_walls *hw)
 {
 	if (d->key.w)
 	{
@@ -28,7 +28,7 @@ static void	do_w_key(t_cub3D_data *d, t_handle_walls *hw)
 	}
 }
 
-static void	do_s_key(t_cub3D_data *d, t_handle_walls *hw)
+static void	do_s_key(t_cub3d_data *d, t_handle_walls *hw)
 {
 	if (d->key.s)
 	{
@@ -43,7 +43,7 @@ static void	do_s_key(t_cub3D_data *d, t_handle_walls *hw)
 	}
 }
 
-static void	do_a_key(t_cub3D_data *d, t_handle_walls *hw)
+static void	do_a_key(t_cub3d_data *d, t_handle_walls *hw)
 {
 	if (d->key.a)
 	{
@@ -58,7 +58,7 @@ static void	do_a_key(t_cub3D_data *d, t_handle_walls *hw)
 	}
 }
 
-static void	do_d_key(t_cub3D_data *d, t_handle_walls *hw)
+static void	do_d_key(t_cub3d_data *d, t_handle_walls *hw)
 {
 	if (d->key.d)
 	{
@@ -73,7 +73,7 @@ static void	do_d_key(t_cub3D_data *d, t_handle_walls *hw)
 	}
 }
 
-void	do_movement_keys(t_cub3D_data *data)
+void	do_movement_keys(t_cub3d_data *data)
 {
 	t_handle_walls	handle_walls;
 

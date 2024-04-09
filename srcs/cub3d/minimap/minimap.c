@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:43:52 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/06 13:43:57 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_minimap_colors(t_map_data *map_data)
 	map_data->minimap_wall_color.b = 255;
 }
 
-static void	draw_minimap_wall(t_cub3D_data *data, int x, int y, int gap)
+static void	draw_minimap_wall(t_cub3d_data *data, int x, int y, int gap)
 {
 	int	start_x;
 	int	start_y;
@@ -40,7 +40,7 @@ static void	draw_minimap_wall(t_cub3D_data *data, int x, int y, int gap)
 	}
 }
 
-void	draw_minimap(t_cub3D_data *data)
+void	draw_minimap(t_cub3d_data *data)
 {
 	int			x;
 	int			y;

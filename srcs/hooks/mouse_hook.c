@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 15:00:01 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdbool.h>
 #include <X11/Xlib.h>
 
-void	do_alt_key(t_cub3D_data *data)
+void	do_alt_key(t_cub3d_data *data)
 {
 	if (data->window.mouse_integ)
 	{
@@ -32,7 +32,7 @@ void	do_alt_key(t_cub3D_data *data)
 	}
 }
 
-bool	reset_mouse_position(t_cub3D_data *data, int mouse_x,
+bool	reset_mouse_position(t_cub3d_data *data, int mouse_x,
 			int mouse_y, t_mouse *mouse)
 {
 	int	center_x;
@@ -63,7 +63,7 @@ static void	get_previous_positions(int x, int y, t_mouse *mouse)
 	}
 }
 
-int	mouse_handler(int x, int y, t_cub3D_data *data)
+int	mouse_handler(int x, int y, t_cub3d_data *data)
 {
 	t_mouse	*mouse;
 
@@ -91,7 +91,7 @@ int	mouse_handler(int x, int y, t_cub3D_data *data)
 	return (0);
 }
 
-bool	mouse_hook(t_cub3D_data *data)
+bool	mouse_hook(t_cub3d_data *data)
 {
 	mlx_hook(data->window.address, 6, PointerMotionMask, mouse_handler, data);
 	return (true);

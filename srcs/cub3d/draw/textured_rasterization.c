@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textured_rasterization.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:46:30 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 14:10:05 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	init_textured_rasterization(t_pixel_extractor *extractor,
 }
 
 void	textured_rasterization(t_line line,
-		t_img_data *img, t_ray *ray, t_cub3D_data *data)
+		t_img_data *img, t_ray *ray, t_cub3d_data *data)
 {
 	t_rasterization		ras;
 	t_pixel_extractor	extractor;

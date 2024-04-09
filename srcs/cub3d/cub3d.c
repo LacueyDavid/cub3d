@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:43:57 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 11:55:51 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	reset_image(t_img_data *img_data)
 	return (true);
 }
 
-void	ensure_player_is_in_map(t_cub3D_data *data)
+void	ensure_player_is_in_map(t_cub3d_data *data)
 {
 	int	one_block;
 
@@ -41,7 +41,7 @@ void	ensure_player_is_in_map(t_cub3D_data *data)
 		data->player.position.y = one_block * data->map_data.height;
 }
 
-void	key_gestion(t_cub3D_data *data)
+void	key_gestion(t_cub3d_data *data)
 {
 	reset_player(data);
 	do_shift_key(data);
@@ -49,7 +49,7 @@ void	key_gestion(t_cub3D_data *data)
 	ensure_player_is_in_map(data);
 }
 
-int	cub3d(t_cub3D_data *data)
+int	cub3d(t_cub3d_data *data)
 {
 	key_gestion(data);
 	reset_image(&data->img_data);

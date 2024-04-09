@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:07:13 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 14:59:02 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	prepare_next_ray(t_ray *ray)
 		ray->angle -= 2 * M_PI;
 }
 
-void	set_ray(t_ray *ray, t_cub3D_data *data)
+void	set_ray(t_ray *ray, t_cub3d_data *data)
 {
 	ray->x = 0;
 	ray->y = 0;
@@ -50,7 +50,7 @@ void	set_ray(t_ray *ray, t_cub3D_data *data)
 		ray->angle -= 2 * M_PI;
 }
 
-void	draw_rays(t_cub3D_data *data)
+void	draw_rays(t_cub3d_data *data)
 {
 	t_ray	ray;
 

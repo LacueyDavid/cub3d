@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:13:37 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/08 20:36:36 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "keycode.h"
 #include <stdlib.h>
 
-int	handle_escape_press(int keycode, t_cub3D_data *data)
+int	handle_escape_press(int keycode, t_cub3d_data *data)
 {
 	if (keycode == ESC_KEY_CODE)
 	{
@@ -35,7 +35,7 @@ int	handle_escape_press(int keycode, t_cub3D_data *data)
 	return (0);
 }
 
-int	handle_window_close(t_cub3D_data *data)
+int	handle_window_close(t_cub3d_data *data)
 {
 	mlx_destroy_image(data->window.mlx, data->img_data.img);
 	mlx_destroy_window(data->window.mlx, data->window.address);
@@ -50,20 +50,20 @@ int	handle_window_close(t_cub3D_data *data)
 	exit (0);
 }
 
-int	handle_moving_press(int keycode, t_cub3D_data *data)
+int	handle_moving_press(int keycode, t_cub3d_data *data)
 {
 	do_key_press(data, keycode);
 	return (true);
 }
 
-int	handle_moving_release(int keycode, t_cub3D_data *data)
+int	handle_moving_release(int keycode, t_cub3d_data *data)
 {
 	handle_escape_press(keycode, data);
 	do_key_release(data, keycode);
 	return (true);
 }
 
-bool	key_board_hooks(t_cub3D_data *data)
+bool	key_board_hooks(t_cub3d_data *data)
 {
 	mlx_hook(data->window.address, 2, 1L << 0, handle_moving_press, data);
 	mlx_hook(data->window.address, 3, 1L << 1, handle_moving_release, data);

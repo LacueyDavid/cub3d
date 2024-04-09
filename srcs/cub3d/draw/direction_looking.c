@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   direction_looking.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlacuey <dlacuey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:25:55 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/03/28 02:09:21 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "draw.h"
 
-void	looking_left(t_cub3D_data *data, t_ray *ray)
+void	looking_left(t_cub3d_data *data, t_ray *ray)
 {
 	int	gap;
 
@@ -25,7 +25,7 @@ void	looking_left(t_cub3D_data *data, t_ray *ray)
 	ray->y_offset = -ray->x_offset * ray->tan;
 }
 
-void	looking_right(t_cub3D_data *data, t_ray *ray)
+void	looking_right(t_cub3d_data *data, t_ray *ray)
 {
 	int	gap;
 
@@ -37,7 +37,7 @@ void	looking_right(t_cub3D_data *data, t_ray *ray)
 	ray->y_offset = -ray->x_offset * ray->tan;
 }
 
-void	looking_up(t_cub3D_data *data, t_ray *ray)
+void	looking_up(t_cub3d_data *data, t_ray *ray)
 {
 	int	gap;
 
@@ -49,7 +49,7 @@ void	looking_up(t_cub3D_data *data, t_ray *ray)
 	ray->x_offset = -ray->y_offset * ray->invert_tan;
 }
 
-void	looking_down(t_cub3D_data *data, t_ray *ray)
+void	looking_down(t_cub3d_data *data, t_ray *ray)
 {
 	int	gap;
 
@@ -61,7 +61,7 @@ void	looking_down(t_cub3D_data *data, t_ray *ray)
 	ray->x_offset = -ray->y_offset * ray->invert_tan;
 }
 
-void	looking_straight_sides(t_cub3D_data *data, t_ray *ray, int *bigger)
+void	looking_straight_sides(t_cub3d_data *data, t_ray *ray, int *bigger)
 {
 	ray->x = data->player.position.x;
 	ray->y = data->player.position.y;

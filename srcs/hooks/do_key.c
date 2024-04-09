@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 11:41:14 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "mlx.h"
 #include "cub3d_useful_values.h"
 
-void	init_mouse(t_cub3D_data *data)
+void	init_mouse(t_cub3d_data *data)
 {
 	data->mouse.prev_x = -1;
 	data->mouse.prev_y = -1;
@@ -37,7 +37,7 @@ void	init_keys(t_keys *keys)
 	keys->r = false;
 }
 
-void	do_key_press(t_cub3D_data *data, int keycode)
+void	do_key_press(t_cub3d_data *data, int keycode)
 {
 	if (keycode == ALT_KEY_CODE)
 		do_alt_key(data);
@@ -61,7 +61,7 @@ void	do_key_press(t_cub3D_data *data, int keycode)
 		data->key.r = true;
 }
 
-void	do_key_release(t_cub3D_data *data, int keycode)
+void	do_key_release(t_cub3d_data *data, int keycode)
 {
 	if (keycode == W_KEY_CODE)
 		data->key.w = false;
