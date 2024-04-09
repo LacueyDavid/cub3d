@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 10:12:32 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/09 11:41:46 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	mouse_handler(int x, int y, t_cub3D_data *data)
 
 	mouse = &data->mouse;
 	mouse->mouse_reset = false;
+	//mlx_mouse_hide(data->window.mlx, data->window.address);
 	if (mouse->prev_x != -1 && mouse->prev_y != -1 && data->window.mouse_integ)
 	{
 		mouse->mouse_reset = reset_mouse_position(data, x, y, mouse);
