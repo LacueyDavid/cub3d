@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:20:32 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/11 14:09:55 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/12 17:23:26 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include "mlx.h"
 #include "cub3d_useful_values.h"
 
-// mlx_mouse_hide(data->window.mlx, data->window.address);
 void	init_mouse(t_cub3d_data *data)
 {
 	data->mouse.prev_x = -1;
 	data->mouse.prev_y = -1;
 	data->mouse.mouse_reset = false;
 	data->mouse.accumulated_delta_x = 0.0;
+	mlx_mouse_hide(data->window.mlx, data->window.address);
 }
 
 void	init_keys(t_keys *keys)
