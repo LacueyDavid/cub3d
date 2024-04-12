@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:00:00 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/07 15:56:49 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:42:20 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@
 #include "parser.h"
 #include "minimap.h"
 
-void	free_textures(t_map_data *map_data)
+void	free_textures(t_map_data *data)
 {
-	free(map_data->north_img);
-	free(map_data->south_img);
-	free(map_data->east_img);
-	free(map_data->west_img);
+	if (data->north_img)
+		free(data->north_img);
+	if (data->south_img)
+		free(data->south_img);
+	if (data->east_img)
+		free(data->east_img);
+	if (data->west_img)
+		free(data->west_img);
 }
 
 bool	check_filename_extention(char *filepath)
@@ -84,12 +88,16 @@ bool	parsing_map(char *filepath, t_map_data *map_data)
 {
 	char	**file;
 
+	map_data->north_img = NULL;
+	map_data->south_img = NULL;
+	map_data->east_img = NULL;
+	map_data->west_img = NULL;
 	if (!check_filename_extention(filepath))
 		return (error_wrong_extention(), false);
 	if (!fill_file(&file, filepath))
 		return (false);
 	if (!get_textures(file, map_data))
-		return (free_file(file), false);
+		return (free_file(file), free_textures(map_data), false);
 	else if (!get_colors(file, map_data))
 		return (free_file(file), free_textures(map_data), false);
 	else if (!get_map(file, map_data))

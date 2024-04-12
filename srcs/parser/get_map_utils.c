@@ -6,11 +6,20 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:57:47 by jugingas          #+#    #+#             */
-/*   Updated: 2024/03/14 11:57:56 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/10 14:13:53 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <stdio.h>
+
+bool	check_xpm_extention(char *line)
+{
+	if (line[ft_strlen(line) - 2] == 'm' && line[ft_strlen(line) - 3] == 'p'
+		&& line[ft_strlen(line) - 4] == 'x' && line[ft_strlen(line) - 5] == '.')
+		return (true);
+	return (false);
+}
 
 int	skip_texture_and_colors(char **file)
 {

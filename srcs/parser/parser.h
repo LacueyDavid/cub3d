@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:54:23 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 14:01:06 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/10 14:05:32 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ bool		get_colors(char **file, t_map_data *data);
 bool		get_map(char **file, t_map_data *data);
 void		destroy_map(t_map_enum **map, int height);
 bool		check_map(char **map);
+bool		check_read(int fd);
 bool		check_textures(t_map_data *data);
+bool		check_xpm_extention(char *line);
 bool		is_map_line(char *line);
 int			skip_texture_and_colors(char **file);
 

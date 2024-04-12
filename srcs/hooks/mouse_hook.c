@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:43:43 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 15:02:36 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:12:23 by dlacuey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ void	do_alt_key(t_cub3d_data *data)
 	}
 	else
 	{
-		mlx_mouse_hide(data->window.mlx, data->window.address);
 		data->window.mouse_integ = true;
+		return ;
 	}
 }
+// mlx_mouse_hide(data->window.mlx, data->window.address);
 
 bool	reset_mouse_position(t_cub3d_data *data, int mouse_x,
 			int mouse_y, t_mouse *mouse)

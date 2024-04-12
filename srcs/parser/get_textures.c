@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:27:01 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/08 13:18:26 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/10 14:14:32 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ bool	get_north(char **file, t_map_data *data)
 		n = 0;
 		while (file[i][n] && is_whitespace(file[i][n]))
 			n++;
-		if (file[i][n] == 'N' && file[i][n + 1] == 'O' && file[i][n + 2] == ' ')
+		if (file[i][n] == 'N' && file[i][n + 1] == 'O' && file[i][n + 2] == ' '
+			&& check_xpm_extention(file[i]))
 		{
 			n += 2;
 			while (file[i][n] && is_whitespace(file[i][n]))
@@ -54,7 +55,8 @@ bool	get_south(char **file, t_map_data *data)
 		n = 0;
 		while (file[i][n] && is_whitespace(file[i][n]))
 			n++;
-		if (file[i][n] == 'S' && file[i][n + 1] == 'O' && file[i][n + 2] == ' ')
+		if (file[i][n] == 'S' && file[i][n + 1] == 'O' && file[i][n + 2] == ' '
+			&& check_xpm_extention(file[i]))
 		{
 			n += 2;
 			while (file[i][n] && is_whitespace(file[i][n]))
@@ -80,7 +82,8 @@ bool	get_east(char **file, t_map_data *data)
 		n = 0;
 		while (file[i][n] && is_whitespace(file[i][n]))
 			n++;
-		if (file[i][n] == 'E' && file[i][n + 1] == 'A' && file[i][n + 2] == ' ')
+		if (file[i][n] == 'E' && file[i][n + 1] == 'A' && file[i][n + 2] == ' '
+			&& check_xpm_extention(file[i]))
 		{
 			n += 2;
 			while (file[i][n] && is_whitespace(file[i][n]))
@@ -106,7 +109,8 @@ bool	get_west(char **file, t_map_data *data)
 		n = 0;
 		while (file[i][n] && is_whitespace(file[i][n]))
 			n++;
-		if (file[i][n] == 'W' && file[i][n + 1] == 'E' && file[i][n + 2] == ' ')
+		if (file[i][n] == 'W' && file[i][n + 1] == 'E' && file[i][n + 2] == ' '
+			&& check_xpm_extention(file[i]))
 		{
 			n += 2;
 			while (file[i][n] && is_whitespace(file[i][n]))
@@ -129,19 +133,19 @@ bool	get_textures(char **file, t_map_data *data)
 		|| !get_east(file, data) || !get_west(file, data))
 		return (printf("error: missing texture path in .cub file\n"), false);
 	fd = open(data->north_img, O_RDONLY);
-	if (fd == -1)
+	if (!check_read(fd) || fd == -1)
 		return (printf("error: north wall texture does not exist.\n"), false);
 	close(fd);
 	fd = open(data->south_img, O_RDONLY);
-	if (fd == -1)
+	if (!check_read(fd) || fd == -1)
 		return (printf("error: south wall texture does not exist.\n"), false);
 	close(fd);
 	fd = open(data->east_img, O_RDONLY);
-	if (fd == -1)
+	if (!check_read(fd) || fd == -1)
 		return (printf("error: east wall texture does not exist.\n"), false);
 	close(fd);
 	fd = open(data->west_img, O_RDONLY);
-	if (fd == -1)
+	if (!check_read(fd) || fd == -1)
 		return (printf("error: west wall texture does not exist.\n"), false);
 	close(fd);
 	if (!check_textures(data))

@@ -6,15 +6,15 @@
 #    By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 21:05:04 by dlacuey           #+#    #+#              #
-#    Updated: 2024/04/09 16:30:39 by dlacuey          ###   ########.fr        #
+#    Updated: 2024/04/11 14:14:17 by dlacuey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-CC = gcc
+CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 LDFLAGS = -lmlx_Linux -Lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
 
@@ -31,8 +31,6 @@ CPPFLAGS =												\
 				-I srcs/hooks/							\
 				-I mlx/									\
 				-I srcs/cub3d/draw/						\
-														\
-				-MMD -MP -MF $(@:.o=.d)					\
 														\
 
 OBJS =													\
@@ -126,7 +124,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
--include $(OBJS:.o=.d)
 
 .PHONY: all clean fclean re check

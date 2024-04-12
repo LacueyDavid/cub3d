@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:18:28 by jugingas          #+#    #+#             */
-/*   Updated: 2024/04/09 15:01:12 by jugingas         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:58:51 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,25 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <string.h>
+
+bool	check_read(int fd)
+{
+	char	buff[1];
+
+	if (read(fd, buff, 0) == -1)
+		return (false);
+	return (true);
+}
+
+bool	end_gnl(char *line, int fd)
+{
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (false);
+}
 
 bool	is_xpm(char *line, char *name)
 {
@@ -35,10 +54,7 @@ bool	check_res(char *name, int fd)
 	line = get_next_line(fd);
 	resolution = 0;
 	if (!is_xpm(line, name))
-	{
-		free(line);
-		return (false);
-	}
+		return (end_gnl(line, fd));
 	while (line)
 	{
 		if (!ft_strncmp(line, "\"", 1) && !resolution)

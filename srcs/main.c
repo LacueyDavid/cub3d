@@ -6,7 +6,7 @@
 /*   By: jugingas <jugingas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:55:09 by dlacuey           #+#    #+#             */
-/*   Updated: 2024/04/09 16:30:36 by dlacuey          ###   ########.fr       */
+/*   Updated: 2024/04/10 12:26:16 by jugingas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (error_usage(), EXIT_FAILURE);
-	if (!create_session(&data.window, &data.img_data))
-		return (error_mlx(), EXIT_FAILURE);
 	if (!parsing_map(argv[1], &data.map_data))
 		return (EXIT_FAILURE);
+	if (!create_session(&data.window, &data.img_data))
+		return (error_mlx(), EXIT_FAILURE);
 	if (!take_img_path(&data.map_data))
 		return (EXIT_FAILURE);
 	create_player(&data.player, &data.map_data);
